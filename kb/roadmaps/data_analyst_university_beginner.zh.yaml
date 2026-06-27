@@ -1,0 +1,150 @@
+id: roadmap.data_analyst.university_beginner
+career_path_id: career_path.data_analyst
+title: Data Analyst Beginner Roadmap
+canonical_slug: data-analyst-university-beginner
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+tags:
+  - data
+  - roadmap
+  - beginner
+owner: content
+created_at: 2026-06-26
+updated_at: 2026-06-26
+last_reviewed_at: 2026-06-26
+next_review_due: 2026-09-26
+source_ids: []
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+target_outcome: Build a beginner data analyst portfolio signal within 8-12 weeks.
+assumptions:
+  - Student can commit 3-5 hours per week.
+  - Student has basic spreadsheet familiarity.
+  - Student is exploring entry-level internship readiness rather than expecting immediate job placement.
+time_budget_variants:
+  low:
+    weekly_hours: 1-2
+    recommendation: Focus on exploration and one small spreadsheet artifact.
+  medium:
+    weekly_hours: 3-5
+    recommendation: Complete the first three steps of a portfolio project in 4 weeks.
+  high:
+    weekly_hours: 6-10
+    recommendation: Add SQL practice and one networking action per week.
+three_month_plan:
+  milestones:
+    - milestone_id: milestone.define_direction
+      title: Confirm the data analyst path as a testable direction
+      target_skills:
+        - skill.data_storytelling
+      recommended_actions:
+        - action.define_project_question
+      completion_criteria:
+        - Student can explain why they are testing this path.
+        - Student writes one focused project question.
+      related_metric_ids:
+        - metric.project_readiness
+    - milestone_id: milestone.first_dataset
+      title: Select and document a public dataset
+      target_skills:
+        - skill.spreadsheet_basics
+        - skill.data_storytelling
+      recommended_actions:
+        - action.select_dataset
+      recommended_project_id: project.vancouver_housing_dashboard
+      completion_criteria:
+        - Student selects a dataset and records source details.
+      related_metric_ids:
+        - metric.project_readiness
+    - milestone_id: milestone.first_dashboard
+      title: Complete first dashboard artifact
+      target_skills:
+        - skill.excel
+        - skill.data_visualization
+      recommended_project_id: project.vancouver_housing_dashboard
+      completion_criteria:
+        - Student completes at least three project steps.
+        - Student creates one chart or dashboard draft.
+      related_metric_ids:
+        - metric.project_readiness
+six_month_plan:
+  milestones:
+    - milestone_id: milestone.sql_foundation
+      title: Build SQL foundation
+      target_skills:
+        - skill.sql
+      completion_criteria:
+        - Student can write SELECT, WHERE, GROUP BY queries.
+    - milestone_id: milestone.portfolio_story
+      title: Convert project into portfolio evidence
+      completion_criteria:
+        - Student writes a project summary, resume bullet, and interview story.
+twelve_month_plan:
+  milestones:
+    - milestone_id: milestone.internship_readiness
+      title: Build internship readiness evidence
+      completion_criteria:
+        - Student has at least one project artifact and a basic application story.
+weekly_task_examples:
+  - week: 1
+    tasks:
+      - action.define_project_question
+  - week: 2
+    tasks:
+      - action.select_dataset
+required_skills:
+  - skill.spreadsheet_basics
+  - skill.excel
+  - skill.data_storytelling
+recommended_projects:
+  - project.vancouver_housing_dashboard
+common_blockers:
+  - Student chooses a project topic that is too broad.
+  - Student cannot find a suitable dataset.
+  - Student waits to learn every tool before starting.
+adjustment_rules:
+  - if: weekly_time_commitment_hours < 3
+    then: Keep the first 4 weeks focused on one project question and one dataset.
+  - if: student_dislikes_coding == true
+    then: Start with spreadsheet analysis before SQL.
+ai_usage:
+  used_by:
+    - roadmap_generator
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - target_outcome
+    - assumptions
+    - time_budget_variants
+    - three_month_plan
+    - weekly_task_examples
+    - adjustment_rules
+  display_fields:
+    - title
+    - target_outcome
+    - three_month_plan
+    - weekly_task_examples
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+    - adapt
+  restricted_response_modes:
+    - guarantee_outcome
+  user_visible: true
+compliance_notes:
+  - Roadmap is a planning signal, not a promise of internship results.
+change_log:
+  - date: 2026-06-26
+    change: Created seed roadmap for first demo.
+    editor: Codex

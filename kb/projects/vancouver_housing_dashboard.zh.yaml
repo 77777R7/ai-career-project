@@ -1,0 +1,185 @@
+id: project.vancouver_housing_dashboard
+title: Vancouver Housing Affordability Dashboard
+canonical_slug: vancouver-housing-affordability-dashboard
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: BC
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+tags:
+  - data
+  - dashboard
+  - housing
+  - vancouver
+owner: content
+created_at: 2026-06-26
+updated_at: 2026-06-26
+last_reviewed_at: 2026-06-26
+next_review_due: 2026-09-26
+source_ids:
+  - source.statcan_open_license
+  - source.vancouver_open_data
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+target_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+difficulty: beginner_to_intermediate
+estimated_time: 4-6 weeks
+skills:
+  - skill.spreadsheet_basics
+  - skill.excel
+  - skill.data_visualization
+  - skill.data_storytelling
+prerequisites:
+  skills:
+    - skill.spreadsheet_basics
+  tools:
+    - Excel or Google Sheets
+  accounts:
+    - none
+project_goal: Analyze housing affordability trends in Vancouver and explain the findings through a dashboard and short insight memo.
+final_outputs:
+  - cleaned_dataset
+  - dashboard
+  - insight_summary
+  - portfolio_page
+  - resume_bullet
+  - interview_story
+steps:
+  - step_number: 1
+    title: Define the research question
+    objective: Choose a focused question for the project.
+    estimated_time: 30 minutes
+    required_tools:
+      - Google Docs
+      - Notion
+    input_needed:
+      - career_path
+      - student_interest
+    instructions:
+      - Choose a topic related to housing affordability.
+      - Write one question that can be answered with public data.
+      - Keep the question specific enough for a beginner project.
+    expected_output:
+      type: text
+      description: A 1-2 sentence research question.
+    completion_checklist:
+      - The question is specific.
+      - The question can be answered with available data.
+      - The question connects to a real-world decision.
+    ai_help_prompt: Help the student refine their research question without doing the project for them.
+    review_rubric:
+      clarity: 0-3
+      feasibility: 0-3
+      relevance: 0-3
+    common_mistakes:
+      - The question is too broad.
+      - The question cannot be answered with available data.
+      - The question sounds interesting but has no decision context.
+    next_step_trigger: After a feasible question is written, help the student select a dataset.
+    related_action_id: action.define_project_question
+    related_metric_ids:
+      - metric.project_readiness
+  - step_number: 2
+    title: Select a dataset
+    objective: Find a public dataset that can support the research question.
+    estimated_time: 45 minutes
+    required_tools:
+      - Web browser
+      - Google Docs
+    input_needed:
+      - project_research_question
+    instructions:
+      - Search official public data sources first.
+      - Record the dataset name, source URL, and why it fits the question.
+      - Avoid copying analysis from someone else's project.
+    expected_output:
+      type: source_note
+      description: Dataset source URL plus 2-3 sentences explaining why it fits.
+    completion_checklist:
+      - Dataset source is recorded.
+      - Dataset appears relevant to the research question.
+      - License or terms are noted.
+    ai_help_prompt: Help the student compare dataset candidates. Do not claim a dataset contains fields unless verified.
+    review_rubric:
+      relevance: 0-3
+      source_quality: 0-3
+      feasibility: 0-3
+    common_mistakes:
+      - Choosing a dataset before defining the question.
+      - Using a dataset without checking source or terms.
+    next_step_trigger: After a dataset is selected, guide the student through data cleaning.
+    related_action_id: action.select_dataset
+    related_metric_ids:
+      - metric.project_readiness
+rubric:
+  project_fit:
+    description: The project should show business-relevant data analysis, not only chart creation.
+  evidence_quality:
+    description: Final outputs should make the student's role and reasoning clear.
+resume_bullet_templates:
+  - Built a dashboard analyzing Vancouver housing affordability trends using public datasets, translating findings into a concise insight summary for portfolio presentation.
+linkedin_post_template: I started a data project exploring Vancouver housing affordability. My first step was defining a focused research question and finding public data sources that can support the analysis.
+interview_story_template: "Use a simple project story: why I chose the question, how I found data, what I cleaned, what I found, and what I would improve next."
+data_sources:
+  - source.statcan_open_license
+  - source.vancouver_open_data
+ai_support_level:
+  allowed:
+    - explain_concepts
+    - review_student_output
+    - suggest_next_steps
+    - generate_resume_bullet_from_completed_work
+  not_allowed:
+    - fabricate_results
+    - complete_project_without_student_input
+    - claim_student_did_work_they_did_not_do
+academic_integrity_notes:
+  - This project is designed for portfolio learning.
+  - Do not submit AI-generated work as school coursework unless allowed by your instructor.
+ai_usage:
+  used_by:
+    - project_builder
+    - roadmap_generator
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - project_goal
+    - skills
+    - prerequisites
+    - steps
+    - ai_support_level
+    - academic_integrity_notes
+  display_fields:
+    - title
+    - project_goal
+    - difficulty
+    - estimated_time
+    - final_outputs
+    - steps
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+    - review
+  restricted_response_modes:
+    - fabricate_results
+    - guarantee_outcome
+    - complete_project_without_student_input
+  user_visible: true
+compliance_notes:
+  - Keep source attribution visible when students use public data.
+  - AI can review student work but should not fabricate analysis outputs.
+change_log:
+  - date: 2026-06-26
+    change: Created seed version with first two project steps.
+    editor: Codex

@@ -1,0 +1,59 @@
+id: action.define_project_question
+title: Define your project research question
+description: Write a focused question your project will answer.
+action_type: project_step
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: BC
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+career_path_ids:
+  - career_path.data_analyst
+  - career_path.business_analyst
+skill_ids:
+  - skill.data_storytelling
+estimated_time: 30 minutes
+difficulty: beginner
+prerequisites: []
+completion_criteria:
+  - Student writes a 1-2 sentence research question.
+  - The question is specific enough to answer with data.
+evidence_required:
+  - text_submission
+related_metric_ids:
+  - metric.project_readiness
+ai_support_prompt: Help the student narrow the question while preserving their own thinking. Do not invent project findings.
+source_ids: []
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+ai_usage:
+  used_by:
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - title
+    - description
+    - completion_criteria
+    - ai_support_prompt
+  display_fields:
+    - title
+    - description
+    - estimated_time
+    - completion_criteria
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+  restricted_response_modes:
+    - complete_project_without_student_input
+  user_visible: true

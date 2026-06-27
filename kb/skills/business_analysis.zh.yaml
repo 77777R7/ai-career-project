@@ -1,0 +1,29 @@
+id: skill.business_analysis
+name: Business Analysis
+category: business
+summary: Ability to understand a business problem, define requirements, compare options, and recommend practical next steps.
+related_career_paths:
+  - career_path.business_analyst
+  - career_path.data_analyst
+  - career_path.consultant
+prerequisite_skills: []
+beginner_definition: Can restate a business problem and identify stakeholders, constraints, and success metrics.
+intermediate_definition: Can map processes, compare options, and connect analysis to business decisions.
+advanced_definition: Can lead structured discovery and translate ambiguous needs into clear recommendations.
+evidence_examples:
+  - Wrote a business case memo.
+  - Created a requirement summary or process map.
+proof_artifacts:
+  - business_case_memo
+  - requirements_doc
+  - process_map
+learning_resources: []
+assessment_method: Review whether the student frames the problem, stakeholders, evidence, and recommendation clearly.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids:
+  - source.onet_database
+risk_level: low
+content_maturity: seed
+visibility: student_visible

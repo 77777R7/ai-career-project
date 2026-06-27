@@ -1,0 +1,107 @@
+schema_version: 1.0.0
+last_updated: 2026-06-26
+
+status:
+  - draft
+  - active
+  - archived
+  - deprecated
+
+review_status:
+  - unreviewed
+  - internally_reviewed
+  - student_tested
+  - expert_reviewed
+  - needs_revision
+
+content_maturity:
+  - seed
+  - internally_reviewed
+  - student_validated
+  - expert_reviewed
+  - deprecated
+
+risk_level:
+  - low
+  - medium
+  - high
+
+audience:
+  - high_school_student
+  - university_student
+  - recent_graduate
+  - international_student
+  - parent
+  - advisor
+
+student_stage:
+  - high_school_explorer
+  - university_beginner
+  - university_mid
+  - university_job_search
+  - recent_graduate
+  - early_career
+
+visibility:
+  - public
+  - student_visible
+  - internal
+  - ai_only
+  - admin_only
+
+source_type:
+  - original
+  - government
+  - public_data
+  - official_career_resource
+  - academic
+  - company
+  - university
+  - community
+  - interview
+  - user_generated
+
+allowed_usage:
+  - store_full_text
+  - store_metadata_only
+  - summarize
+  - quote_short_excerpt
+  - link_only
+  - generate_chunks
+  - commercial_use_allowed
+  - commercial_use_restricted
+
+action_type:
+  - onboarding
+  - career_exploration
+  - skill_learning
+  - project_step
+  - resume_output
+  - networking
+  - interview_prep
+  - reflection
+  - application
+
+chunk_type:
+  - fact
+  - guidance
+  - project_step
+  - warning
+  - definition
+  - source_summary
+
+safety_policy_tags:
+  - career_general
+  - education_general
+  - immigration
+  - legal
+  - mental_health
+  - medical
+  - financial_investment
+  - minors
+
+difficulty:
+  - beginner
+  - beginner_to_intermediate
+  - intermediate
+  - advanced

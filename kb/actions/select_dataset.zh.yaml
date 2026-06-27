@@ -1,0 +1,64 @@
+id: action.select_dataset
+title: Select a dataset for your project
+description: Choose a public dataset that can help answer the project research question.
+action_type: project_step
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: BC
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+career_path_ids:
+  - career_path.data_analyst
+  - career_path.business_analyst
+skill_ids:
+  - skill.spreadsheet_basics
+  - skill.data_storytelling
+estimated_time: 45 minutes
+difficulty: beginner
+prerequisites:
+  - action.define_project_question
+completion_criteria:
+  - Student selects at least one relevant public dataset.
+  - Student records the source URL and why the dataset is useful.
+evidence_required:
+  - source_url
+  - short_text_submission
+related_metric_ids:
+  - metric.project_readiness
+ai_support_prompt: Help the student compare dataset options and check whether they fit the research question. Do not fabricate dataset contents.
+source_ids:
+  - source.statcan_open_license
+  - source.vancouver_open_data
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+ai_usage:
+  used_by:
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - title
+    - description
+    - completion_criteria
+    - ai_support_prompt
+  display_fields:
+    - title
+    - description
+    - estimated_time
+    - completion_criteria
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+  restricted_response_modes:
+    - fabricate_results
+  user_visible: true

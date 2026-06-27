@@ -1,0 +1,141 @@
+id: career_path.business_analyst
+title: Business Analyst
+canonical_slug: business-analyst
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+tags:
+  - business
+  - analysis
+  - operations
+owner: content
+created_at: 2026-06-26
+updated_at: 2026-06-26
+last_reviewed_at: 2026-06-26
+next_review_due: 2026-09-26
+source_ids:
+  - source.jobbank_career_planning
+  - source.onet_database
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+summary: Business analysts help organizations understand problems, improve processes, compare options, and make practical decisions.
+related_majors:
+  - Commerce
+  - Economics
+  - Business
+  - Information Systems
+  - Operations
+daily_tasks:
+  - Clarify business problems and goals.
+  - Gather requirements from stakeholders.
+  - Analyze data, workflows, or customer needs.
+  - Turn findings into recommendations or implementation plans.
+best_fit_for:
+  - Students who enjoy business problem-solving.
+  - Students who like both communication and analysis.
+  - Students who want a moderate technical path without becoming a full software engineer.
+common_challenges:
+  - The work can be ambiguous and requires asking clear questions.
+  - Students need to show evidence of analysis, not just interest in business.
+reflection_questions:
+  - Do you enjoy understanding why a process or business decision is not working?
+  - Are you comfortable talking to people and turning messy needs into a structured plan?
+support_strategies:
+  - Start with a small business case project and write a clear recommendation memo.
+required_skills:
+  - skill.business_analysis
+  - skill.excel
+  - skill.data_storytelling
+  - skill.data_visualization
+recommended_courses:
+  - Business analytics
+  - Operations management
+  - Intro statistics
+  - Information systems
+high_school_preparation:
+  - Join a business club or case competition.
+  - Practice analyzing a local business problem.
+university_preparation:
+  - Build a business case project.
+  - Practice requirement summaries, process maps, and data-backed recommendations.
+entry_level_roles:
+  - Business Analyst Intern
+  - Operations Analyst Intern
+  - Product Analyst Intern
+  - Junior Business Analyst
+internship_keywords:
+  - business analyst intern
+  - operations analyst
+  - product analyst
+  - strategy analyst intern
+project_ideas:
+  - project.vancouver_housing_dashboard
+first_project_recommendation:
+  project_id: project.vancouver_housing_dashboard
+  reason: Useful for students who want to show structured analysis and business communication using public data.
+career_progression:
+  entry_level:
+    - Business Analyst Intern
+    - Junior Business Analyst
+  mid_level:
+    - Senior Business Analyst
+    - Product Analyst
+  advanced:
+    - Product Manager
+    - Strategy Manager
+salary_note: Salary varies by region, employer, industry, and experience. Use official sources for current wage ranges rather than treating this as a promise.
+risks_and_challenges:
+  - Generic business interest is not enough; students need project evidence and communication artifacts.
+misconceptions:
+  - Business analysis is not only making slides; it requires structured problem definition and evidence.
+alternative_paths:
+  - career_path.data_analyst
+  - career_path.consultant
+canadian_context:
+  - Entry postings may overlap with operations, product, data, and strategy roles.
+ai_usage:
+  used_by:
+    - career_path_matcher
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - summary
+    - required_skills
+    - common_challenges
+    - first_project_recommendation
+    - canadian_context
+  display_fields:
+    - title
+    - summary
+    - daily_tasks
+    - required_skills
+    - first_project_recommendation
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - legal_advice
+    - immigration_advice
+  user_visible: true
+compliance_notes:
+  - Do not imply business roles are easier or guaranteed; frame as a path to test through evidence.
+change_log:
+  - date: 2026-06-26
+    change: Created seed version.
+    editor: Codex

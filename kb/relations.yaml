@@ -1,0 +1,123 @@
+schema_version: 1.0.0
+last_updated: 2026-06-26
+
+career_path_skills:
+  - career_path_id: career_path.data_analyst
+    skill_id: skill.excel
+    importance: core
+    required_level: intermediate
+    weight: 0.20
+  - career_path_id: career_path.data_analyst
+    skill_id: skill.sql
+    importance: core
+    required_level: intermediate
+    weight: 0.25
+  - career_path_id: career_path.data_analyst
+    skill_id: skill.data_visualization
+    importance: core
+    required_level: intermediate
+    weight: 0.25
+  - career_path_id: career_path.data_analyst
+    skill_id: skill.data_storytelling
+    importance: core
+    required_level: intermediate
+    weight: 0.20
+  - career_path_id: career_path.business_analyst
+    skill_id: skill.business_analysis
+    importance: core
+    required_level: intermediate
+    weight: 0.30
+  - career_path_id: career_path.business_analyst
+    skill_id: skill.excel
+    importance: core
+    required_level: intermediate
+    weight: 0.20
+  - career_path_id: career_path.business_analyst
+    skill_id: skill.data_storytelling
+    importance: core
+    required_level: intermediate
+    weight: 0.25
+  - career_path_id: career_path.business_analyst
+    skill_id: skill.data_visualization
+    importance: supporting
+    required_level: beginner
+    weight: 0.15
+  - career_path_id: career_path.consultant
+    skill_id: skill.business_analysis
+    importance: core
+    required_level: intermediate
+    weight: 0.30
+  - career_path_id: career_path.consultant
+    skill_id: skill.data_storytelling
+    importance: core
+    required_level: intermediate
+    weight: 0.30
+  - career_path_id: career_path.consultant
+    skill_id: skill.excel
+    importance: supporting
+    required_level: beginner
+    weight: 0.15
+
+career_path_projects:
+  - career_path_id: career_path.data_analyst
+    project_id: project.vancouver_housing_dashboard
+    fit_level: beginner
+    proves_skills:
+      - skill.excel
+      - skill.data_visualization
+      - skill.data_storytelling
+  - career_path_id: career_path.business_analyst
+    project_id: project.vancouver_housing_dashboard
+    fit_level: beginner
+    proves_skills:
+      - skill.business_analysis
+      - skill.data_storytelling
+      - skill.data_visualization
+  - career_path_id: career_path.consultant
+    project_id: project.vancouver_housing_dashboard
+    fit_level: exploration
+    proves_skills:
+      - skill.business_analysis
+      - skill.data_storytelling
+
+roadmap_projects:
+  - roadmap_template_id: roadmap.data_analyst.university_beginner
+    project_id: project.vancouver_housing_dashboard
+    recommended_stage: first_project
+
+action_metric_links:
+  - action_id: action.define_project_question
+    metric_id: metric.project_readiness
+    effect:
+      type: points
+      value: 5
+  - action_id: action.select_dataset
+    metric_id: metric.project_readiness
+    effect:
+      type: points
+      value: 5
+
+project_metric_links:
+  - project_id: project.vancouver_housing_dashboard
+    metric_id: metric.project_readiness
+    effect:
+      type: scoring_rules
+      source: metric.project_readiness
+
+source_entity_links:
+  - source_id: source.jobbank_career_planning
+    entity_type: career_path
+    entity_id: career_path.data_analyst
+    supports_field: canadian_context
+  - source_id: source.onet_database
+    entity_type: skill
+    entity_id: skill.sql
+    supports_field: category
+  - source_id: source.vancouver_open_data
+    entity_type: project
+    entity_id: project.vancouver_housing_dashboard
+    supports_field: data_sources
+  - source_id: source.jobbank_career_planning
+    entity_type: career_path
+    entity_id: career_path.consultant
+    supports_field: canadian_context

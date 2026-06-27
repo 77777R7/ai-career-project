@@ -1,0 +1,28 @@
+id: skill.data_visualization
+name: Data Visualization
+category: data
+summary: Ability to turn data into clear charts or dashboards that help a reader understand a pattern, comparison, or decision.
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+prerequisite_skills:
+  - skill.spreadsheet_basics
+beginner_definition: Can choose basic chart types and label them clearly.
+intermediate_definition: Can create dashboards with filters, comparisons, and clear takeaways.
+advanced_definition: Can design decision-ready visual narratives for different audiences.
+evidence_examples:
+  - Created a dashboard from public data.
+  - Presented chart insights in a short memo.
+proof_artifacts:
+  - dashboard
+  - chart_pack
+  - portfolio_page
+learning_resources: []
+assessment_method: Review whether charts are accurate, readable, and tied to a useful question.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids: []
+risk_level: low
+content_maturity: seed
+visibility: student_visible

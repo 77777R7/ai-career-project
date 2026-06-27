@@ -1,0 +1,29 @@
+id: skill.sql
+name: SQL
+category: data
+summary: Query language used to retrieve, filter, group, join, and analyze structured data.
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+prerequisite_skills:
+  - skill.spreadsheet_basics
+beginner_definition: Can understand tables and write simple SELECT and WHERE queries.
+intermediate_definition: Can use JOIN, GROUP BY, aggregation, and filtering for business questions.
+advanced_definition: Can design multi-step queries, validate outputs, and optimize analysis workflows.
+evidence_examples:
+  - Wrote SQL queries for a public dataset.
+  - Used SQL output in a dashboard or insight memo.
+proof_artifacts:
+  - sql_query_file
+  - dashboard
+  - written_insight_memo
+learning_resources: []
+assessment_method: Review submitted queries for correctness, clarity, and match to the business question.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids:
+  - source.onet_database
+risk_level: low
+content_maturity: seed
+visibility: student_visible

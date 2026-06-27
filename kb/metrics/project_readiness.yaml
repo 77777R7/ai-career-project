@@ -1,0 +1,79 @@
+id: metric.project_readiness
+name: Project Readiness
+description: Measures whether a student has career-relevant project evidence.
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+input_signals:
+  - selected_project
+  - completed_project_steps
+  - final_outputs_created
+  - resume_bullet_created
+  - interview_story_created
+scoring_rules:
+  - condition: selected_project == true
+    points: 20
+  - condition: completed_project_steps >= 1
+    points: 10
+  - condition: completed_project_steps >= 3
+    points: 25
+  - condition: final_outputs_created == true
+    points: 25
+  - condition: resume_bullet_created == true
+    points: 15
+  - condition: interview_story_created == true
+    points: 15
+score_bands:
+  - range: 0-30
+    label: Needs a starting project
+  - range: 31-70
+    label: Building evidence
+  - range: 71-100
+    label: Portfolio-ready
+next_action_rules:
+  - if_score_below: 30
+    recommend: Choose one beginner project from your primary career path.
+  - if_score_below: 50
+    recommend: Complete the first three project steps and write a short insight summary.
+risk_notes:
+  - Do not frame low readiness as failure. Use growth-oriented language.
+source_ids: []
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+ai_usage:
+  used_by:
+    - dashboard_scoring
+    - advisor_chat
+    - roadmap_generator
+  prompt_fields:
+    - description
+    - input_signals
+    - score_bands
+    - next_action_rules
+  display_fields:
+    - name
+    - description
+    - score_bands
+    - next_action_rules
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+  restricted_response_modes:
+    - shame_user
+    - guarantee_outcome
+  user_visible: true

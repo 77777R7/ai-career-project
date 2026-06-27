@@ -1,0 +1,144 @@
+id: career_path.data_analyst
+title: Data Analyst
+canonical_slug: data-analyst
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+tags:
+  - data
+  - analytics
+  - business
+owner: content
+created_at: 2026-06-26
+updated_at: 2026-06-26
+last_reviewed_at: 2026-06-26
+next_review_due: 2026-09-26
+source_ids:
+  - source.jobbank_career_planning
+  - source.onet_database
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+summary: Data analysts use data to help organizations understand problems, measure performance, and make better decisions.
+related_majors:
+  - Economics
+  - Commerce
+  - Statistics
+  - Computer Science
+  - Data Science
+daily_tasks:
+  - Clean and organize data.
+  - Build reports, charts, or dashboards.
+  - Analyze trends and explain findings to business teams.
+  - Check whether metrics are accurate and useful.
+best_fit_for:
+  - Students who like structured problem-solving.
+  - Students interested in business decisions and evidence.
+  - Students willing to learn practical tools such as Excel, SQL, and dashboards.
+common_challenges:
+  - The work can involve repeated data cleaning and detail checking.
+  - Students may need to become comfortable with SQL or spreadsheet formulas.
+reflection_questions:
+  - Do you enjoy finding patterns in messy information?
+  - Are you willing to learn practical data tools even if you are not a pure coder?
+support_strategies:
+  - Start with a small spreadsheet or dashboard project before committing to this path.
+required_skills:
+  - skill.excel
+  - skill.sql
+  - skill.data_visualization
+  - skill.data_storytelling
+recommended_courses:
+  - Intro statistics
+  - Business analytics
+  - Databases or SQL
+  - Data visualization
+high_school_preparation:
+  - Practice spreadsheet analysis with a public dataset.
+  - Explore statistics and business questions.
+university_preparation:
+  - Build one dashboard project.
+  - Learn SQL basics.
+  - Write a clear insight memo for each project.
+entry_level_roles:
+  - Data Analyst Intern
+  - Business Intelligence Intern
+  - Reporting Analyst Intern
+  - Junior Data Analyst
+internship_keywords:
+  - data analyst intern
+  - business intelligence intern
+  - analytics intern
+  - reporting analyst
+project_ideas:
+  - project.vancouver_housing_dashboard
+first_project_recommendation:
+  project_id: project.vancouver_housing_dashboard
+  reason: Strong beginner project for students with business, economics, or city-data interests.
+career_progression:
+  entry_level:
+    - Data Analyst Intern
+    - Junior Data Analyst
+  mid_level:
+    - Senior Data Analyst
+    - Analytics Consultant
+  advanced:
+    - Analytics Manager
+    - Data Product Manager
+salary_note: Salary varies by region, employer, industry, and experience. Use official sources for current wage ranges rather than treating this as a promise.
+risks_and_challenges:
+  - Entry-level roles can be competitive.
+  - A generic online course is usually weaker than a clear project artifact.
+misconceptions:
+  - You do not need to be a software engineer to start exploring data analysis.
+  - Data analysis is not only coding; communication and business context matter.
+alternative_paths:
+  - career_path.business_analyst
+canadian_context:
+  - Canadian postings may use titles such as reporting analyst, BI analyst, analytics intern, or business analyst intern.
+  - Public data projects can be useful for students who lack internship experience.
+ai_usage:
+  used_by:
+    - career_path_matcher
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - summary
+    - required_skills
+    - common_challenges
+    - first_project_recommendation
+    - canadian_context
+  display_fields:
+    - title
+    - summary
+    - daily_tasks
+    - required_skills
+    - first_project_recommendation
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - legal_advice
+    - immigration_advice
+  user_visible: true
+compliance_notes:
+  - Do not present salary or employability as guaranteed.
+change_log:
+  - date: 2026-06-26
+    change: Created seed version.
+    editor: Codex

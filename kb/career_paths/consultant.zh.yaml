@@ -1,0 +1,145 @@
+id: career_path.consultant
+title: Consultant
+canonical_slug: consultant
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+tags:
+  - consulting
+  - strategy
+  - business
+owner: content
+created_at: 2026-06-26
+updated_at: 2026-06-26
+last_reviewed_at: 2026-06-26
+next_review_due: 2026-09-26
+source_ids:
+  - source.jobbank_career_planning
+  - source.onet_database
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+summary: Consultants help organizations understand ambiguous business problems, structure analysis, compare options, and communicate recommendations.
+related_majors:
+  - Commerce
+  - Economics
+  - Business
+  - Engineering
+  - Statistics
+daily_tasks:
+  - Break broad business questions into structured workstreams.
+  - Analyze markets, operations, customers, or financial data.
+  - Build recommendation slides or memos.
+  - Communicate findings to teammates or clients.
+best_fit_for:
+  - Students who enjoy structured business problem-solving.
+  - Students who like communication, analysis, and fast learning.
+  - Students willing to practice cases, presentations, and networking.
+common_challenges:
+  - Recruiting can be competitive and network-driven.
+  - Students need evidence of structured thinking, communication, and follow-through.
+  - The work can involve ambiguous questions without one obvious answer.
+reflection_questions:
+  - Do you enjoy turning messy questions into a clear framework?
+  - Are you willing to practice explaining your reasoning out loud?
+  - Do you like both business analysis and communication?
+support_strategies:
+  - Start with a small market or business case project before focusing on consulting recruiting.
+required_skills:
+  - skill.business_analysis
+  - skill.data_storytelling
+  - skill.excel
+recommended_courses:
+  - Strategy
+  - Business analytics
+  - Operations management
+  - Economics
+high_school_preparation:
+  - Join debate, business club, case competition, or student leadership activities.
+  - Practice explaining business problems clearly.
+university_preparation:
+  - Complete one business case project.
+  - Practice case interviews gradually.
+  - Build networking habits with alumni or student clubs.
+entry_level_roles:
+  - Consulting Analyst Intern
+  - Strategy Analyst Intern
+  - Business Analyst Intern
+  - Associate Consultant Intern
+internship_keywords:
+  - consulting intern
+  - strategy analyst intern
+  - business analyst intern
+  - associate consultant intern
+project_ideas:
+  - project.vancouver_housing_dashboard
+first_project_recommendation:
+  project_id: project.vancouver_housing_dashboard
+  reason: Useful as a first evidence project for structured analysis, data-backed communication, and recommendation writing.
+career_progression:
+  entry_level:
+    - Consulting Analyst
+    - Associate Consultant
+  mid_level:
+    - Consultant
+    - Senior Consultant
+  advanced:
+    - Engagement Manager
+    - Principal
+salary_note: Salary and recruiting outcomes vary by firm, region, role, school, and student preparation. Do not treat this path as a guaranteed offer outcome.
+risks_and_challenges:
+  - Competitive recruiting can reward early preparation and networking.
+  - Students should test whether they enjoy structured ambiguity before overcommitting.
+misconceptions:
+  - Consulting is not only making slides; it requires problem framing, evidence, communication, and client-ready judgment.
+alternative_paths:
+  - career_path.business_analyst
+  - career_path.data_analyst
+canadian_context:
+  - Canadian consulting recruiting often overlaps with business analyst, strategy analyst, operations, and advisory roles.
+  - Student clubs and case competitions can help create early signals, but they do not replace project evidence.
+ai_usage:
+  used_by:
+    - career_path_matcher
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - summary
+    - required_skills
+    - common_challenges
+    - first_project_recommendation
+    - canadian_context
+  display_fields:
+    - title
+    - summary
+    - daily_tasks
+    - required_skills
+    - first_project_recommendation
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - legal_advice
+    - immigration_advice
+  user_visible: true
+compliance_notes:
+  - Do not imply consulting recruiting outcomes are predictable or guaranteed.
+change_log:
+  - date: 2026-06-26
+    change: Created lightweight seed version for MVP top-3 path demo.
+    editor: Codex

@@ -1,0 +1,27 @@
+id: source.onet_database
+source_name: O*NET Database
+url: https://www.onetcenter.org/database.html
+source_type: official_career_resource
+publisher: O*NET Resource Center
+license: CC BY 4.0
+license_url: https://creativecommons.org/licenses/by/4.0/
+terms_url: https://www.onetcenter.org/database.html
+can_store_text: true
+can_use_commercially: true
+can_modify: true
+attribution_required: true
+attribution_text: "This content includes information from the O*NET Database by the U.S. Department of Labor, used under CC BY 4.0."
+allowed_usage:
+  - store_metadata_only
+  - summarize
+  - generate_chunks
+  - commercial_use_allowed
+risk_level: low
+authority_level: official
+region_scope: US
+last_checked: 2026-06-26
+update_frequency: yearly
+ingestion_status: metadata_only
+content_owner_contact: null
+is_user_generated: false
+notes: Useful for skill and task taxonomy. Must preserve attribution and note modifications.

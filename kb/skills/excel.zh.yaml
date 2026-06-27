@@ -1,0 +1,28 @@
+id: skill.excel
+name: Excel
+category: data
+summary: Practical spreadsheet analysis skill for cleaning data, building formulas, summarizing trends, and communicating findings.
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+prerequisite_skills:
+  - skill.spreadsheet_basics
+beginner_definition: Can use formulas, sort/filter data, and build simple charts.
+intermediate_definition: Can use pivot tables, lookup formulas, and structured summaries for business questions.
+advanced_definition: Can create repeatable analysis models with documented assumptions and clean outputs.
+evidence_examples:
+  - Built a spreadsheet analysis for a public dataset.
+  - Created charts and wrote an insight summary.
+proof_artifacts:
+  - spreadsheet_file
+  - dashboard
+  - insight_summary
+learning_resources: []
+assessment_method: Review a submitted spreadsheet for structure, formulas, clarity, and reproducibility.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids: []
+risk_level: low
+content_maturity: seed
+visibility: student_visible

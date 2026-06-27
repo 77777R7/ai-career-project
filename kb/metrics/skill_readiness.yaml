@@ -1,0 +1,81 @@
+id: metric.skill_readiness
+name: Skill Readiness
+description: Measures whether a student has started building the core skills required for the selected path.
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - high_school_student
+  - university_student
+  - recent_graduate
+  - international_student
+student_stage:
+  - high_school_explorer
+  - university_beginner
+  - university_mid
+  - university_job_search
+  - recent_graduate
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+  - career_path.consultant
+input_signals:
+  - declared_skill_levels
+  - skill_practice_completed
+  - project_steps_completed
+  - proof_artifacts_created
+scoring_rules:
+  - condition: selected_primary_path == true
+    points: 10
+  - condition: at_least_one_core_skill_beginner_or_above == true
+    points: 20
+  - condition: at_least_two_core_skills_beginner_or_above == true
+    points: 20
+  - condition: project_step_related_to_core_skill_completed == true
+    points: 25
+  - condition: proof_artifact_created == true
+    points: 25
+score_bands:
+  - range: 0-30
+    label: Needs a starting skill focus
+  - range: 31-70
+    label: Building core skills
+  - range: 71-100
+    label: Skill evidence emerging
+next_action_rules:
+  - if_score_below: 30
+    recommend: Pick one core skill from your primary path and complete a beginner action.
+  - if_score_below: 60
+    recommend: Connect one skill to a small project step so the skill becomes evidence.
+risk_notes:
+  - Do not frame low skill readiness as inability. Recommend small practice actions.
+source_ids: []
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+ai_usage:
+  used_by:
+    - dashboard_scoring
+    - advisor_chat
+    - roadmap_generator
+  prompt_fields:
+    - description
+    - input_signals
+    - score_bands
+    - next_action_rules
+  display_fields:
+    - name
+    - description
+    - score_bands
+    - next_action_rules
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+  restricted_response_modes:
+    - shame_user
+    - guarantee_outcome
+  user_visible: true

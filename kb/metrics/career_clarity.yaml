@@ -1,0 +1,84 @@
+id: metric.career_clarity
+name: Career Clarity
+description: Measures whether a student has narrowed their exploration into one or more concrete paths and understands why they are testing them.
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - high_school_student
+  - university_student
+  - recent_graduate
+  - international_student
+student_stage:
+  - high_school_explorer
+  - university_beginner
+  - university_mid
+  - university_job_search
+  - recent_graduate
+  - early_career
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+  - career_path.consultant
+input_signals:
+  - completed_profile
+  - compared_career_paths
+  - saved_primary_path
+  - wrote_reason_for_path
+  - completed_reflection_action
+scoring_rules:
+  - condition: completed_profile == true
+    points: 20
+  - condition: compared_career_paths >= 2
+    points: 20
+  - condition: saved_primary_path == true
+    points: 25
+  - condition: wrote_reason_for_path == true
+    points: 20
+  - condition: completed_reflection_action == true
+    points: 15
+score_bands:
+  - range: 0-30
+    label: Exploring options
+  - range: 31-70
+    label: Direction taking shape
+  - range: 71-100
+    label: Clear path to test
+next_action_rules:
+  - if_score_below: 30
+    recommend: Compare two or three paths and save one path to test first.
+  - if_score_below: 60
+    recommend: Write why this path is worth testing and choose a small first action.
+risk_notes:
+  - Do not present clarity as a permanent life decision. It is a current direction to test.
+source_ids: []
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+ai_usage:
+  used_by:
+    - dashboard_scoring
+    - advisor_chat
+    - roadmap_generator
+    - career_path_matcher
+  prompt_fields:
+    - description
+    - input_signals
+    - score_bands
+    - next_action_rules
+  display_fields:
+    - name
+    - description
+    - score_bands
+    - next_action_rules
+  retrieval_priority: high
+  allowed_response_modes:
+    - explain
+    - recommend
+  restricted_response_modes:
+    - guarantee_outcome
+    - shame_user
+  user_visible: true

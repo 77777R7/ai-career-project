@@ -1,0 +1,29 @@
+id: skill.spreadsheet_basics
+name: Spreadsheet Basics
+category: data
+summary: Ability to organize tabular data, use basic formulas, filter rows, and create simple summaries in Excel or Google Sheets.
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+prerequisite_skills: []
+beginner_definition: Can enter, sort, filter, and format tabular data.
+intermediate_definition: Can use formulas, pivot tables, and simple charts to answer questions.
+advanced_definition: Can build repeatable spreadsheet analysis workflows with clear assumptions.
+evidence_examples:
+  - Cleaned a small dataset in a spreadsheet.
+  - Created a pivot table and chart explaining a simple trend.
+proof_artifacts:
+  - spreadsheet_file
+  - chart
+  - written_insight_memo
+learning_resources:
+  - source_id: source.original_spreadsheet_guide
+    note: Placeholder for original MVP learning guide.
+assessment_method: Check whether the student can organize and summarize a small dataset without manual confusion.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids: []
+risk_level: low
+content_maturity: seed
+visibility: student_visible

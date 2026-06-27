@@ -1,0 +1,26 @@
+id: source.jobbank_career_planning
+source_name: Job Bank Career Planning
+url: https://www.jobbank.gc.ca/career-planning
+source_type: official_career_resource
+publisher: Government of Canada Job Bank
+license: official_website_terms
+license_url: null
+terms_url: https://www.jobbank.gc.ca/terms
+can_store_text: false
+can_use_commercially: false
+can_modify: false
+attribution_required: true
+attribution_text: "Career information source: Government of Canada Job Bank."
+allowed_usage:
+  - store_metadata_only
+  - summarize
+  - link_only
+risk_level: low
+authority_level: official
+region_scope: Canada
+last_checked: 2026-06-26
+update_frequency: quarterly
+ingestion_status: metadata_only
+content_owner_contact: null
+is_user_generated: false
+notes: Use as an official navigation and context source; do not scrape or store full text until terms are reviewed.

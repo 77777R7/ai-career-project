@@ -1,0 +1,75 @@
+id: metric.interview_readiness
+name: Interview Readiness
+description: Measures whether a student can explain their interests, projects, and evidence in a structured interview story.
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - recent_graduate
+  - international_student
+student_stage:
+  - university_mid
+  - university_job_search
+  - recent_graduate
+  - early_career
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+  - career_path.consultant
+input_signals:
+  - project_story_created
+  - resume_bullet_created
+  - mock_interview_completed
+  - interview_reflection_completed
+scoring_rules:
+  - condition: project_story_created == true
+    points: 30
+  - condition: resume_bullet_created == true
+    points: 25
+  - condition: mock_interview_completed == true
+    points: 25
+  - condition: interview_reflection_completed == true
+    points: 20
+score_bands:
+  - range: 0-30
+    label: Needs a first story
+  - range: 31-70
+    label: Story bank in progress
+  - range: 71-100
+    label: Interview story ready
+next_action_rules:
+  - if_score_below: 30
+    recommend: Turn one project or exploration activity into a short STAR-style story.
+  - if_score_below: 60
+    recommend: Practice explaining why you chose the project and what you learned.
+risk_notes:
+  - Interview readiness is not a guarantee of interview or offer outcomes.
+source_ids: []
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+ai_usage:
+  used_by:
+    - dashboard_scoring
+    - advisor_chat
+  prompt_fields:
+    - description
+    - input_signals
+    - score_bands
+    - next_action_rules
+  display_fields:
+    - name
+    - description
+    - score_bands
+    - next_action_rules
+  retrieval_priority: low
+  allowed_response_modes:
+    - explain
+    - recommend
+  restricted_response_modes:
+    - guarantee_outcome
+  user_visible: true

@@ -1,0 +1,27 @@
+id: source.vancouver_open_data
+source_name: City of Vancouver Open Data Portal
+url: https://opendata.vancouver.ca/
+source_type: public_data
+publisher: City of Vancouver
+license: open_government_license
+license_url: https://opendata.vancouver.ca/pages/licence/
+terms_url: https://opendata.vancouver.ca/pages/terms/
+can_store_text: true
+can_use_commercially: true
+can_modify: true
+attribution_required: true
+attribution_text: "Contains information licensed under the City of Vancouver Open Government Licence."
+allowed_usage:
+  - store_metadata_only
+  - summarize
+  - generate_chunks
+  - commercial_use_allowed
+risk_level: low
+authority_level: official
+region_scope: BC
+last_checked: 2026-06-26
+update_frequency: quarterly
+ingestion_status: metadata_only
+content_owner_contact: null
+is_user_generated: false
+notes: Candidate source family for local data projects; specific datasets should be registered separately before ingestion.

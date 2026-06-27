@@ -1,0 +1,29 @@
+id: skill.data_storytelling
+name: Data Storytelling
+category: communication
+summary: Ability to explain what data means, why it matters, and what action or decision it supports.
+related_career_paths:
+  - career_path.data_analyst
+  - career_path.business_analyst
+  - career_path.consultant
+prerequisite_skills: []
+beginner_definition: Can write a simple takeaway from a chart.
+intermediate_definition: Can connect findings to a business or policy question with caveats.
+advanced_definition: Can structure a narrative that explains context, evidence, limitations, and recommendation.
+evidence_examples:
+  - Wrote an insight summary for a dashboard.
+  - Explained project findings in an interview story.
+proof_artifacts:
+  - insight_summary
+  - portfolio_page
+  - interview_story
+learning_resources: []
+assessment_method: Review whether the student explains a finding, its importance, and its limitation clearly.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+  - metric.interview_readiness
+source_ids: []
+risk_level: low
+content_maturity: seed
+visibility: student_visible

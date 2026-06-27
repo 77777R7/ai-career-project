@@ -1,0 +1,27 @@
+id: source.original_spreadsheet_guide
+source_name: Original Spreadsheet Basics Guide
+url: null
+source_type: original
+publisher: AI Student Growth Platform Team
+license: proprietary_original
+license_url: null
+terms_url: null
+can_store_text: true
+can_use_commercially: true
+can_modify: true
+attribution_required: false
+attribution_text: null
+allowed_usage:
+  - store_full_text
+  - summarize
+  - generate_chunks
+  - commercial_use_allowed
+risk_level: low
+authority_level: internal_original
+region_scope: Canada
+last_checked: 2026-06-26
+update_frequency: quarterly
+ingestion_status: metadata_only
+content_owner_contact: null
+is_user_generated: false
+notes: Placeholder registry entry for original MVP learning content to be written by the team.

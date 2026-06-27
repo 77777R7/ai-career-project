@@ -1,0 +1,27 @@
+id: source.statcan_open_license
+source_name: Statistics Canada Open Licence
+url: https://www.statcan.gc.ca/en/terms-conditions/open-licence
+source_type: government
+publisher: Statistics Canada
+license: Statistics Canada Open Licence
+license_url: https://www.statcan.gc.ca/en/terms-conditions/open-licence
+terms_url: https://www.statcan.gc.ca/en/terms-conditions
+can_store_text: true
+can_use_commercially: true
+can_modify: true
+attribution_required: true
+attribution_text: "Source: Statistics Canada."
+allowed_usage:
+  - store_metadata_only
+  - summarize
+  - generate_chunks
+  - commercial_use_allowed
+risk_level: low
+authority_level: official
+region_scope: Canada
+last_checked: 2026-06-26
+update_frequency: yearly
+ingestion_status: metadata_only
+content_owner_contact: null
+is_user_generated: false
+notes: Use according to official licence and attribution requirements.
