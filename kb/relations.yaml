@@ -1,5 +1,5 @@
-schema_version: 1.0.0
-last_updated: 2026-06-26
+schema_version: 1.1.0
+last_updated: 2026-06-27
 
 career_path_skills:
   - career_path_id: career_path.data_analyst
@@ -57,32 +57,107 @@ career_path_skills:
     importance: supporting
     required_level: beginner
     weight: 0.15
+  - career_path_id: career_path.product_manager
+    skill_id: skill.product_thinking
+    importance: core
+    required_level: intermediate
+    weight: 0.30
+  - career_path_id: career_path.product_manager
+    skill_id: skill.business_analysis
+    importance: core
+    required_level: beginner
+    weight: 0.20
+  - career_path_id: career_path.product_manager
+    skill_id: skill.data_storytelling
+    importance: core
+    required_level: intermediate
+    weight: 0.25
+  - career_path_id: career_path.product_manager
+    skill_id: skill.excel
+    importance: supporting
+    required_level: beginner
+    weight: 0.10
+  - career_path_id: career_path.software_engineer
+    skill_id: skill.programming_fundamentals
+    importance: core
+    required_level: intermediate
+    weight: 0.40
+  - career_path_id: career_path.software_engineer
+    skill_id: skill.sql
+    importance: supporting
+    required_level: beginner
+    weight: 0.15
+  - career_path_id: career_path.software_engineer
+    skill_id: skill.data_storytelling
+    importance: supporting
+    required_level: beginner
+    weight: 0.10
+  - career_path_id: career_path.policy_analyst
+    skill_id: skill.policy_research
+    importance: core
+    required_level: intermediate
+    weight: 0.35
+  - career_path_id: career_path.policy_analyst
+    skill_id: skill.data_storytelling
+    importance: core
+    required_level: intermediate
+    weight: 0.25
+  - career_path_id: career_path.policy_analyst
+    skill_id: skill.excel
+    importance: supporting
+    required_level: beginner
+    weight: 0.15
 
 career_path_projects:
   - career_path_id: career_path.data_analyst
-    project_id: project.vancouver_housing_dashboard
+    project_id: project.canadian_housing_cost_living_dashboard
     fit_level: beginner
     proves_skills:
       - skill.excel
       - skill.data_visualization
       - skill.data_storytelling
   - career_path_id: career_path.business_analyst
-    project_id: project.vancouver_housing_dashboard
+    project_id: project.canadian_housing_cost_living_dashboard
     fit_level: beginner
     proves_skills:
       - skill.business_analysis
       - skill.data_storytelling
       - skill.data_visualization
   - career_path_id: career_path.consultant
-    project_id: project.vancouver_housing_dashboard
+    project_id: project.canadian_housing_cost_living_dashboard
     fit_level: exploration
     proves_skills:
       - skill.business_analysis
       - skill.data_storytelling
+  - career_path_id: career_path.product_manager
+    project_id: project.ai_student_growth_prd
+    fit_level: beginner
+    proves_skills:
+      - skill.product_thinking
+      - skill.business_analysis
+      - skill.data_storytelling
+  - career_path_id: career_path.software_engineer
+    project_id: project.ai_student_growth_prd
+    fit_level: exploration
+    proves_skills:
+      - skill.product_thinking
+      - skill.programming_fundamentals
+  - career_path_id: career_path.policy_analyst
+    project_id: project.canada_ai_workforce_policy_brief
+    fit_level: beginner
+    proves_skills:
+      - skill.policy_research
+      - skill.data_storytelling
+  - career_path_id: career_path.policy_analyst
+    project_id: project.major_career_exploration_map
+    fit_level: exploration
+    proves_skills:
+      - skill.policy_research
+      - skill.data_storytelling
 
 roadmap_projects:
   - roadmap_template_id: roadmap.data_analyst.university_beginner
-    project_id: project.vancouver_housing_dashboard
+    project_id: project.canadian_housing_cost_living_dashboard
     recommended_stage: first_project
 
 action_metric_links:
@@ -98,11 +173,26 @@ action_metric_links:
       value: 5
 
 project_metric_links:
-  - project_id: project.vancouver_housing_dashboard
+  - project_id: project.canadian_housing_cost_living_dashboard
     metric_id: metric.project_readiness
     effect:
       type: scoring_rules
       source: metric.project_readiness
+  - project_id: project.ai_student_growth_prd
+    metric_id: metric.project_readiness
+    effect:
+      type: scoring_rules
+      source: metric.project_readiness
+  - project_id: project.canada_ai_workforce_policy_brief
+    metric_id: metric.project_readiness
+    effect:
+      type: scoring_rules
+      source: metric.project_readiness
+  - project_id: project.major_career_exploration_map
+    metric_id: metric.career_clarity
+    effect:
+      type: scoring_rules
+      source: metric.career_clarity
 
 source_entity_links:
   - source_id: source.jobbank_career_planning
@@ -115,9 +205,21 @@ source_entity_links:
     supports_field: category
   - source_id: source.vancouver_open_data
     entity_type: project
-    entity_id: project.vancouver_housing_dashboard
+    entity_id: project.canadian_housing_cost_living_dashboard
     supports_field: data_sources
   - source_id: source.jobbank_career_planning
     entity_type: career_path
     entity_id: career_path.consultant
+    supports_field: canadian_context
+  - source_id: source.onet_database
+    entity_type: career_path
+    entity_id: career_path.product_manager
+    supports_field: daily_tasks
+  - source_id: source.onet_database
+    entity_type: career_path
+    entity_id: career_path.software_engineer
+    supports_field: daily_tasks
+  - source_id: source.jobbank_career_planning
+    entity_type: career_path
+    entity_id: career_path.policy_analyst
     supports_field: canadian_context

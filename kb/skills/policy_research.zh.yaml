@@ -1,0 +1,29 @@
+id: skill.policy_research
+name: Policy Research
+category: research
+summary: Ability to understand a policy problem, compare evidence, identify stakeholders, and write a clear recommendation or briefing note.
+related_career_paths:
+  - career_path.policy_analyst
+  - career_path.consultant
+prerequisite_skills: []
+beginner_definition: Can summarize a policy question, identify credible sources, and outline tradeoffs.
+intermediate_definition: Can compare policy options, explain stakeholder impacts, and write a short evidence-backed brief.
+advanced_definition: Can design research plans, evaluate policy outcomes, and communicate recommendations to decision-makers.
+evidence_examples:
+  - Wrote a policy brief using official sources.
+  - Compared two policy options with evidence and tradeoffs.
+proof_artifacts:
+  - policy_brief
+  - source_notes
+  - recommendation_memo
+learning_resources: []
+assessment_method: Review whether the student uses credible sources, identifies assumptions, and avoids overclaiming.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids:
+  - source.jobbank_career_planning
+  - source.statcan_open_license
+risk_level: low
+content_maturity: seed
+visibility: student_visible

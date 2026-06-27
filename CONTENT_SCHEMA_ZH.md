@@ -2,17 +2,19 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估，V1 KB seed 先服务 Canadian university explorer 的 career direction + project builder 闭环；Basic RAG 和完整职业覆盖后置。
+
 ## 1. 文档目的
 
 本文件定义 AI Student Growth Platform 第一版 KB 的内容结构。
 
 这里的 KB 不是一堆文章，也不是把网页资料丢进 vector database。它是产品的成长逻辑引擎，负责支撑：
 
-> Career Path Matcher -> Roadmap Generator -> Project Builder -> Growth Dashboard -> AI Advisor -> Basic RAG
+> Career Path Matcher -> Roadmap Generator -> Project Builder -> Growth Snapshot -> Advisor Lite -> Basic RAG Later
 
 第一版 KB 的目标不是覆盖所有职业，而是让 MVP 的核心闭环稳定运行：
 
-> 学生填写 profile -> 系统推荐 career path -> 生成 roadmap -> 推荐 project -> 学生完成 action -> dashboard 更新 -> AI Advisor 给下一步建议
+> 学生填写 profile -> 系统推荐 career path -> 保存 primary path -> 生成 4-week roadmap -> 推荐 project -> 学生完成 action -> Growth Snapshot 更新 -> Advisor Lite 给下一步建议
 
 因此，每条内容都必须满足至少一个产品用途：
 
@@ -20,8 +22,8 @@
 - 生成 next action。
 - 支撑 roadmap。
 - 支撑 project builder。
-- 支撑 dashboard scoring。
-- 支撑 AI Advisor 回答。
+- 支撑 Growth Snapshot scoring。
+- 支撑 Advisor Lite 回答。
 - 提供来源、版权或合规依据。
 
 ## 2. Non-goals
@@ -57,14 +59,14 @@ KB 内容层从阶段 0 就开始搭建。它包括：
 
 ### 3.2 RAG 检索层后接
 
-Basic RAG 放在 AI Advisor 基本跑通之后接入。RAG 层包括：
+Basic RAG 放在 Advisor Lite 和 demo loop 基本跑通之后接入。RAG 层包括：
 
 - Knowledge Chunks
 - Embeddings
 - Retrieval
 - Citation display
 
-RAG 的作用是帮助 AI Advisor 引用可靠资料，不负责替代 Career Path、Roadmap、Project、Metric 等结构化实体。
+RAG 的作用是帮助 Advisor Lite 引用可靠资料，不负责替代 Career Path、Roadmap、Project、Metric 等结构化实体。
 
 ### 3.3 三层 KB 架构
 
@@ -189,7 +191,7 @@ career_path.business_analyst
 skill.sql
 skill.excel
 roadmap.data_analyst.university_beginner
-project.vancouver_housing_dashboard
+project.canadian_housing_cost_living_dashboard
 action.define_project_question
 metric.project_readiness
 source.statcan_open_license
@@ -396,8 +398,8 @@ Career Path 支撑：
 - Career Explorer
 - Roadmap Generator
 - Project Recommender
-- Advisor Chat
-- Dashboard scoring
+- Advisor Lite
+- Growth Snapshot scoring
 
 ### 9.2 Schema
 
@@ -509,7 +511,7 @@ required_skills:
   - skill.data_visualization
   - skill.data_storytelling
 first_project_recommendation:
-  project_id: project.vancouver_housing_dashboard
+  project_id: project.canadian_housing_cost_living_dashboard
   reason: Strong beginner project for students with business, economics, or city-data interests.
 canadian_context:
   - Entry roles may use titles such as reporting analyst, BI intern, analytics intern, or business analyst intern.
@@ -545,8 +547,8 @@ Skill 支撑：
 - Career Path matching
 - Roadmap prerequisites
 - Project requirements
-- Dashboard skill readiness
-- Advisor recommendations
+- Growth Snapshot skill readiness
+- Advisor Lite recommendations
 
 ### 10.2 Schema
 
@@ -674,15 +676,15 @@ three_month_plan:
       target_skills:
         - skill.sql
       recommended_actions:
-        - action.learn_sql_select
-        - action.complete_sql_practice
+        - action.define_project_question
+        - action.select_dataset
       completion_criteria:
         - Student can write SELECT, WHERE, and GROUP BY queries.
       related_metric_ids:
         - metric.skill_readiness
     - milestone_id: milestone.first_dashboard
       title: Complete first dashboard project
-      recommended_project_id: project.vancouver_housing_dashboard
+      recommended_project_id: project.canadian_housing_cost_living_dashboard
       completion_criteria:
         - Student completes the first three project steps.
       related_metric_ids:
@@ -766,8 +768,8 @@ academic_integrity_notes:
 ### 12.6 Project 示例
 
 ```yaml
-id: project.vancouver_housing_dashboard
-title: Vancouver Housing Affordability Dashboard
+id: project.canadian_housing_cost_living_dashboard
+title: Canadian Housing and Cost of Living Dashboard
 target_career_paths:
   - career_path.data_analyst
   - career_path.business_analyst
@@ -834,8 +836,8 @@ Action Template 支撑：
 
 - Roadmap weekly tasks
 - Project steps
-- Dashboard progress
-- AI Advisor next action
+- Growth Snapshot progress
+- Advisor Lite next action
 - Retention loop
 
 ### 13.2 Schema
@@ -902,7 +904,7 @@ ai_support_prompt: Help the student narrow the question while preserving their o
 
 ### 14.1 用途
 
-Growth Metrics 让 Dashboard 可计算，而不是 AI 随机说一个百分比。
+Growth Metrics 让 Growth Snapshot 可计算，而不是 AI 随机说一个百分比。
 
 ### 14.2 Schema
 
@@ -1074,7 +1076,7 @@ notes: Use according to official licence and attribution requirements.
 
 ### 16.1 用途
 
-Chunks 是 AI Advisor 的检索单位。Chunks 不替代结构化实体。
+Chunks 是 Advisor Lite / future RAG 的检索单位。Chunks 不替代结构化实体。
 
 ### 16.2 Schema
 
@@ -1168,7 +1170,7 @@ career_path_skills:
 
 career_path_projects:
   - career_path_id: career_path.data_analyst
-    project_id: project.vancouver_housing_dashboard
+    project_id: project.canadian_housing_cost_living_dashboard
     fit_level: beginner
     proves_skills:
       - skill.data_visualization
@@ -1177,7 +1179,7 @@ career_path_projects:
 
 roadmap_projects:
   - roadmap_template_id: roadmap.data_analyst.university_beginner
-    project_id: project.vancouver_housing_dashboard
+    project_id: project.canadian_housing_cost_living_dashboard
     recommended_stage: first_project
 
 action_metric_links:
@@ -1462,9 +1464,9 @@ kb/
 2. `kb/relations.yaml`
 3. `kb/career_paths/data_analyst.zh.yaml`
 4. `kb/career_paths/business_analyst.zh.yaml`
-5. `kb/projects/vancouver_housing_dashboard.zh.yaml`
+5. `kb/projects/canadian_housing_cost_living_dashboard.zh.yaml`
 6. `kb/metrics/project_readiness.yaml`
 
 第一批 seed 不追求多，先追求能完整跑通 demo：
 
-> UBC Econ student -> Data / Business path -> 4-week roadmap -> Vancouver Housing Dashboard -> Project Step 1 -> Project Readiness 更新
+> Canadian university explorer -> Data / Business / Product / Software / Policy path -> 4-week roadmap -> Canadian Housing and Cost of Living Dashboard -> Project Step 1-2 -> Growth Snapshot 更新

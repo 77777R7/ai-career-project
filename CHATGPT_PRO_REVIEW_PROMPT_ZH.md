@@ -10,22 +10,28 @@ https://github.com/77777R7/ai-career-project
 
 ## 项目背景
 
-我们想做的是一个面向加拿大用户的 AI 学生成长与职业规划平台。它不是一个普通 chatbot，也不是一个单纯 job board。第一版 MVP 的核心闭环是：
+我们想做的是一个面向加拿大用户的 AI 学生成长与职业规划平台。它不是一个普通 chatbot，也不是一个单纯 job board。
+
+根据上一轮 GPT Pro 评估，我们已经把 V1 从“大而全 Student Growth OS”收窄为：
+
+> Canadian university explorers 的 AI Career Direction + Project Builder：帮助方向不清晰、项目证据不足的大学生，从 profile 到 3 条 career path、1 条 primary path、4-week roadmap、项目 Step 1-2、Growth Snapshot 和 Advisor Lite。
+
+第一版 MVP 的核心闭环是：
 
 ```text
-Onboarding -> Profile Summary -> Career Match -> Save Primary Path -> Roadmap -> Project Builder -> Dashboard -> AI Advisor
+Onboarding -> Profile Summary -> Career Match -> Save Primary Path -> 4-week Roadmap -> Project Builder Step 1-2 -> Growth Snapshot -> Advisor Lite
 ```
 
-目标用户不是只限大学生，也不是只限高中 11/12 年级。当前边界是：
+当前边界是：
 
 - 全加拿大，不局限 BC / Vancouver。
-- 高中生、大学生、新毕业生、early-career explorers 都可以使用。
-- 只要用户有专业选择、职业方向、项目积累、长期成长规划需求，就属于潜在用户。
+- V1 主 ICP 是 Canadian university explorers，尤其是 business / data / tech-adjacent 背景、方向不清晰、缺少项目证据的学生。
+- 高中生、新毕业生、early-career explorers 可以作为 secondary / demo / later expansion，但不是 V1 主入口。
 - 第一版内容方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
 
 第一版要验证的不是“AI 能不能聊天”，而是：
 
-> 一个加拿大有专业/职业规划需求的学生或 early-career explorer，在方向不清楚、项目经历不足的情况下，是否愿意填写 profile，并跟着平台选择方向、生成 roadmap、开始第一个项目。
+> 一个加拿大大学生 explorer，在方向不清楚、项目经历不足的情况下，是否愿意填写 profile，并跟着平台选择方向、生成 4-week roadmap、开始第一个项目 Step 1-2。
 
 ## 我们目前已经完成的内容
 
@@ -42,7 +48,7 @@ Onboarding -> Profile Summary -> Career Match -> Save Primary Path -> Roadmap ->
    - 明确顺序是：
 
 ```text
-KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap -> Project Builder -> Dashboard -> AI Advisor -> Basic RAG
+KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Save Primary Path -> Roadmap -> Project Builder -> Growth Snapshot -> Advisor Lite -> Basic RAG Later
 ```
 
 3. `CONTENT_SCHEMA_ZH.md`
@@ -52,9 +58,9 @@ KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap ->
 4. `kb/`
    - 第一批 seed KB 内容，YAML 格式。
    - 已有：
-     - Career paths: Business Analyst, Data Analyst, Consultant
-     - Skills: Excel, SQL, spreadsheet basics, business analysis, data visualization, data storytelling
-     - Project: Vancouver Housing Dashboard
+     - Career paths: Business Analyst, Data Analyst, Consultant, Product Manager, Software Engineer, Policy Analyst
+     - Skills: Excel, SQL, spreadsheet basics, business analysis, data visualization, data storytelling, product thinking, programming fundamentals, policy research
+     - Projects: Canadian Housing and Cost of Living Dashboard, AI Student Growth Platform PRD, Canada AI Workforce Policy Brief, Major and Career Exploration Map
      - Roadmap: Data Analyst university beginner roadmap
      - Actions: Define project question, Select dataset
      - Metrics: Career Clarity, Project Readiness, Skill Readiness, Interview Readiness
@@ -62,8 +68,8 @@ KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap ->
 
 5. `ICP_AND_USER_STORIES_ZH.md`
    - 第一版 ICP 和 user stories。
-   - 已经修正为不只面向大学生，也不按年级限制高中生。
-   - 覆盖全加拿大。
+   - 已根据上一轮建议收窄：V1 主 ICP 是 Canadian university explorers。
+   - 高中生是 secondary exploration mode，不是 V1 主入口。
 
 6. `CAREER_MATCHER_RULES_ZH.md`
    - V1 Career Matcher 规则。
@@ -75,11 +81,11 @@ KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap ->
    - 两个 demo persona：
      - Demo User A: University Explorer
      - Demo User B: High School Explorer
-   - 演示完整闭环：profile -> match -> roadmap -> project -> dashboard -> advisor。
+   - 演示完整闭环：profile -> match -> roadmap -> project Step 1-2 -> Growth Snapshot -> Advisor Lite。
 
 8. `DATA_SCHEMA_ZH.md`
    - 产品 runtime data schema。
-   - 覆盖 profiles、career matches、saved paths、roadmaps、project progress、dashboard metric snapshots、advisor sessions/messages、consent records、audit logs。
+   - 覆盖 profiles、career matches、saved paths、roadmaps、project progress、Growth Snapshot metric snapshots、Advisor Lite sessions/messages、consent records、later audit logs。
 
 9. `ONBOARDING_FLOW_ZH.md`
    - MVP onboarding flow。
@@ -87,7 +93,7 @@ KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap ->
    - 把字段拆成首次必问、首次建议问、可选、后续 progressive profile。
 
 10. `APP_DATA_MODEL_SQL_DRAFT.sql`
-    - Supabase/Postgres draft schema。
+    - Supabase/Postgres draft schema，作为 Phase 2 persistence 参考，不作为第一轮 demo 前置。
     - 有 15 张 MVP 必需表、enums、constraints、indexes、updated_at trigger、RLS draft。
 
 11. `API_CONTRACTS_ZH.md`
@@ -108,13 +114,13 @@ KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap ->
     - 当前计划是：
 
 ```text
-Project Scaffold -> KB Loader -> Mock Runtime Store -> Mock API -> Onboarding UI -> Career Matcher Service -> Roadmap Service -> Project Progress -> Dashboard -> AI Advisor -> Supabase Integration
+Project Scaffold -> KB Loader -> Mock Runtime Store -> Mock API -> Onboarding UI -> Career Matcher Service -> Roadmap Service -> Project Progress -> Growth Snapshot -> Advisor Lite -> Supabase Integration
 ```
 
 核心实现策略：
 
 ```text
-先用 mock store 跑通完整 demo loop，再接 Supabase。
+先用 mock store 跑通完整 demo loop，再接 Supabase；Basic RAG 和 Full Dashboard 后置。
 ```
 
 ## 请你重点评估的问题
@@ -133,10 +139,9 @@ Project Scaffold -> KB Loader -> Mock Runtime Store -> Mock API -> Onboarding UI
 
 ### 2. ICP 是否正确
 
-- 我们把用户扩到高中生、大学生、新毕业生、early-career explorers，这样是否太宽？
-- 第一版是否应该进一步收窄 beachhead？
-- 如果要收窄，应该优先选哪一类人？为什么？
-- 高中生和大学生是否应该在同一个 MVP 里，还是应该先服务一个？
+- 我们现在把 V1 主 ICP 收窄为 Canadian university explorers，这个 beachhead 是否足够清晰？
+- 高中生作为 secondary exploration mode 是否会干扰 V1，还是可以保留为 demo/later expansion？
+- 如果还要进一步收窄，应该按专业、学校、国际学生身份、求职阶段还是项目需求来切？
 - “全加拿大”是否合理，还是第一版仍应围绕某些学校/城市做 go-to-market？
 
 ### 3. MVP 模块顺序是否合理
@@ -144,7 +149,7 @@ Project Scaffold -> KB Loader -> Mock Runtime Store -> Mock API -> Onboarding UI
 目前顺序是：
 
 ```text
-KB -> Profile -> Career Matcher -> Roadmap -> Project Builder -> Dashboard -> AI Advisor -> Basic RAG
+KB -> Profile -> Career Matcher -> Save Primary Path -> Roadmap -> Project Builder -> Growth Snapshot -> Advisor Lite -> Basic RAG Later
 ```
 
 请评估：
@@ -152,9 +157,9 @@ KB -> Profile -> Career Matcher -> Roadmap -> Project Builder -> Dashboard -> AI
 - 这个顺序是否正确？
 - 哪些模块应该更薄？
 - 哪些模块是 demo 必需，哪些可以推迟？
-- Dashboard 是否应该在 V1 出现？
-- AI Advisor 是否应该更早或更晚？
-- Basic RAG 是否应该推迟到更后？
+- Growth Snapshot 作为 V1 的轻量 dashboard 是否足够？
+- Advisor Lite 是否应该更早或更晚？
+- Basic RAG 后置是否正确？
 
 ### 4. KB 结构是否过重或刚好
 
@@ -176,7 +181,7 @@ KB -> Profile -> Career Matcher -> Roadmap -> Project Builder -> Dashboard -> AI
 - 会不会给用户一种“被算法判定”的压力？
 - 如何更好表达 uncertainty？
 - 推荐 top 3 paths 是否合理？
-- 目前只 seed Business Analyst、Data Analyst、Consultant 是否足够 demo？
+- 目前 seed Business Analyst、Data Analyst、Consultant、Product Manager、Software Engineer、Policy Analyst 是否足够 demo？
 - 哪些 career paths 应该下一批补？
 
 ### 6. Roadmap + Project Builder 是否能形成真正价值
@@ -185,7 +190,7 @@ KB -> Profile -> Career Matcher -> Roadmap -> Project Builder -> Dashboard -> AI
 
 - 从 career match 到 4-week roadmap 的逻辑是否自然？
 - Project Builder 是否是这个产品区别于普通 career advice 的关键？
-- 第一个项目用 Vancouver Housing Dashboard 是否合适？如果全加拿大，是否应该换成更全国通用的 project？
+- 第一个项目换成 Canadian Housing and Cost of Living Dashboard 是否更适合全加拿大定位？Vancouver 作为默认 demo city 是否可以？
 - 高中生版本的 project/action 应该怎样设计，才不会像求职产品？
 
 ### 7. Data schema 和 SQL 是否合理
@@ -207,8 +212,8 @@ KB -> Profile -> Career Matcher -> Roadmap -> Project Builder -> Dashboard -> AI
 - 是否应该合并或拆分某些 endpoint？
 - 前端是否能按这些 API 顺利实现？
 - save primary path 放在 career match 下是否合理？
-- Dashboard recompute API 是否应该存在？
-- Advisor 的 proposed profile patch 设计是否合理？
+- 我们把 dashboard recompute 改成 internal hook、不暴露前端 API，这样是否正确？
+- Advisor proposed profile patch 已后置，这样是否正确？
 
 ### 9. Onboarding 是否足够轻
 

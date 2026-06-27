@@ -2,13 +2,19 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估收窄 V1 范围：先验证加拿大大学生 explorer 的 Career Direction + Project Builder 闭环，高中生、毕业生和 early-career 用户保留为次级/后续扩展模式。
+
 ## 1. 一句话定义
 
-你们要做的不是一个普通 AI career chatbot，也不是一个简历工具，而是一个面向加拿大高中生、大学生和早期求职者的长期 Student Growth OS。
+长期愿景不是一个普通 AI career chatbot，也不是一个简历工具，而是一个面向加拿大学生和早期职业探索者的长期 Student Growth OS。
+
+但第一版 V1 不直接做完整 Student Growth OS。V1 的更窄定义是：
+
+> 面向加拿大大学生 explorer 的 AI Career Direction + Project Builder，让方向不清晰、项目证据不足的学生，在一次 demo flow 中完成 profile、获得 3 条职业路径、保存 1 条主路径、生成 4 周计划，并开始第一个 portfolio project。
 
 更准确的定义：
 
-> 一个基于长期学生档案、加拿大本地职业知识库、个性化路线图、项目执行系统和成长 dashboard 的 AI 学生成长与职业规划平台。
+> 一个基于学生档案、加拿大本地职业知识库、个性化路线图、项目执行系统和成长 snapshot 的 AI 学生成长与职业规划平台。
 
 它帮助学生完成一条连续链路：
 
@@ -22,25 +28,26 @@
 2. 系统生成 Student Growth Profile。
 3. AI 推荐 3 条 career path。
 4. 学生选择 1 条主路径。
-5. 系统生成 4 周计划和 3/6/12 个月路线。
+5. 系统生成 4-week starter roadmap。
 6. 系统推荐第一个 portfolio project。
-7. 学生进入 Project Builder 完成第一个步骤。
-8. Dashboard 更新 readiness。
-9. AI Advisor 根据 profile、roadmap、project progress 和知识库继续回答问题。
+7. 学生进入 Project Builder 完成 Step 1-2。
+8. Growth Snapshot 更新 clarity / skill / project readiness。
+9. Advisor Lite 根据 profile、roadmap、project progress 和 curated KB context 继续回答问题。
 
 第一版的成功不是“功能很多”，而是证明学生愿意反复回来，因为平台真的帮他从不确定变成可执行。
 
 ## 3. 目标用户优先级
 
-第一优先级：全加拿大有专业/职业规划需求的高中生、大学生、新毕业生和 early-career explorers。
+第一优先级：加拿大大学生 explorer，尤其是 business / data / tech-adjacent 背景、方向不清晰、缺少项目证据的人。
 
 原因：
 
-- 用户共同需求不是某个年级，而是专业/职业方向不清晰、项目证据不足、需要长期成长路线。
-- 高中生可能在做专业/大学方向选择，大学生可能在做职业/实习方向选择，新毕业生可能在补项目证据和方向判断。
-- 只要核心需求是方向、技能、项目和长期成长路线，就适合 Student Growth OS。
+- 这是 V1 最容易验证“方向 -> 项目 -> 作品证据”的人群。
+- 他们已经接近实习、co-op、club project、portfolio 等真实行动场景。
+- 他们能判断 Data / Business / Product / Software / Policy 等路径差异，也能反馈项目模板是否真的有用。
+- 高中生、新毕业生和 early-career explorers 仍可使用，但 V1 不把他们作为主入口。
 - 如果用户只需要自动投递或 job board，则不是第一版重点。
-- 适合验证长期 dashboard 和 project builder。
+- 适合验证 Project Builder 和 Growth Snapshot，而不是一开始验证完整 dashboard。
 
 第一版方向先聚焦：
 
@@ -54,11 +61,12 @@
 - International Relations
 - undecided
 
-第二优先级：国际学生身份标签，以及已经进入密集求职阶段的用户。
+第二优先级：高中生 exploration mode、国际学生身份标签，以及已经进入密集求职阶段但仍缺方向/项目证据的用户。
 
 原因：
 
 - 国际学生痛点强，尤其是加拿大 hiring norm、简历、项目、networking、面试。
+- 高中生可以用于 demo 和后续扩展，重点是 major / career exploration，不做完整升学规划。
 - 已经进入密集求职阶段的用户可能付费意愿更强，但需求会偏 application tracker、auto-apply、面试工具。
 - 第一版可以服务他们的方向、项目和成长路线需求，但不优先做纯求职工具。
 
@@ -72,7 +80,7 @@
 
 第一版建议锁定的 ICP：
 
-> 全加拿大有专业/职业规划需求的学生和 early-career explorers，他们正在 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided 之间探索，不知道专业和职业怎么对应，也不知道应该做什么项目来验证兴趣和证明能力。
+> 加拿大大学生 explorer，正在 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided 之间探索，不知道专业和职业怎么对应，也不知道应该做什么项目来验证兴趣和证明能力。
 
 ## 4. 产品定位
 
@@ -107,7 +115,7 @@
 V1 必做：
 
 - 结构化 onboarding。
-- 学生类型：高中生、大学生、毕业求职者。
+- 学生类型：V1 主入口为大学生；高中生、新毕业生、early-career 作为次级标签。
 - 年级、学校、专业或目标专业。
 - 兴趣、喜欢/不喜欢的科目。
 - 技能自评：Excel、Python、SQL、writing、presentation、research、finance、design。
@@ -125,25 +133,28 @@ V1 不做：
 关键指标：
 
 - 70% 以上注册用户完成 profile。
-- onboarding 控制在 10-15 分钟内。
+- onboarding 首屏控制在 8 个核心问题以内，后续再渐进补问。
 - 用户认为 AI 对自己的理解准确。
 
 ### 5.2 Career Path Explorer
 
-V1 必做 12 条职业路径：
+V1 seed 先做 6 条可演示职业路径，之后扩展到 12 条：
 
 1. Data Analyst
 2. Business Analyst
-3. Software Engineer
+3. Consultant
 4. Product Manager
-5. AI Product Manager
-6. Consultant
-7. Investment Banking Analyst
-8. Marketing / Growth
-9. UX Designer
-10. Entrepreneur
-11. Policy Analyst
-12. Sustainability Analyst
+5. Software Engineer
+6. Policy Analyst
+
+Later expansion：
+
+- AI Product Manager
+- Investment Banking Analyst
+- Marketing / Growth
+- UX Designer
+- Entrepreneur
+- Sustainability Analyst
 
 每条 path 固定结构：
 
@@ -166,10 +177,8 @@ V1 必做 12 条职业路径：
 
 V1 必做：
 
-- 4-week plan。
-- 3-month plan。
-- 6-month plan。
-- 12-month direction。
+- 4-week starter roadmap。
+- 3/6/12 month direction 只作为折叠式 later view，不作为 V1 主体验。
 - 每周任务。
 - 任务状态：not started, in progress, done, blocked, need help。
 
@@ -188,14 +197,19 @@ Roadmap 不能让 LLM 自由发挥，应该是模板加 LLM 个性化：
 
 这是第一版最重要的差异化模块。普通 ChatGPT 给 advice，你们要带学生做出 evidence。
 
-V1 先做 6 个高质量项目模板：
+V1 先做 4 个高质量项目模板：
 
-1. Vancouver Housing Affordability Dashboard
-2. Local Small Business AI Adoption ROI Case
-3. AI Student Growth Platform PRD
-4. Canadian Bank Valuation Mini Model
-5. Market Entry Case for a Canadian Startup
-6. Personal Career Tracker Web App
+1. Canadian Housing and Cost of Living Dashboard
+2. AI Student Growth Platform PRD
+3. Canada AI Workforce Policy Brief
+4. Major and Career Exploration Map
+
+后续再扩展：
+
+- Local Small Business AI Adoption ROI Case
+- Canadian Bank Valuation Mini Model
+- Market Entry Case for a Canadian Startup
+- Personal Career Tracker Web App
 
 每个项目固定结构：
 
@@ -215,24 +229,24 @@ V1 project flow：
 1. 选择项目。
 2. Step 1 定义问题。
 3. Step 2 找数据或资料。
-4. Step 3 产出初版 artifact。
-5. AI review。
-6. Dashboard 更新 project readiness。
+4. Growth Snapshot 更新 project readiness。
+
+V1 不要求完整 AI project feedback。Step 3、AI review、最终作品集输出可以作为下一轮增强。
 
 关键指标：
 
 - 30% 激活用户开始第一个项目。
 - 20% 激活用户 30 天内完成项目前 3 步。
 
-### 5.5 AI Advisor
+### 5.5 Advisor Lite
 
-AI Advisor 不是通用聊天框，它必须读取：
+V1 的 Advisor Lite 不是完整 RAG chatbot，而是一个基于当前用户状态和 curated KB context 的行动建议层。它必须读取：
 
 - Student profile。
 - Career path。
 - Roadmap。
 - Project progress。
-- Knowledge base。
+- Curated KB snippets。
 - Safety rules。
 
 回答必须推动下一步行动。建议固定输出结构：
@@ -257,19 +271,27 @@ V1 安全边界：
 - 用户从 chat 跳转到 roadmap/project。
 - 高风险问题被正确标记和转介。
 
-### 5.6 Growth Dashboard
+### 5.6 Growth Snapshot
+
+V1 对外命名建议用 Growth Snapshot，而不是 Full Dashboard。它只回答一个问题：
+
+> 你现在最清楚的是什么，最该补的是什么，下一步做什么。
 
 V1 指标：
 
 1. Career Clarity
 2. Skill Readiness
 3. Project Readiness
-4. Resume Readiness
-5. Networking Readiness
-6. Interview Readiness
-7. Execution Consistency
+4. Next Actions
 
-Dashboard 不能制造焦虑。不要写：
+Later 指标：
+
+- Resume Readiness
+- Networking Readiness
+- Interview Readiness
+- Execution Consistency
+
+Growth Snapshot 不能制造焦虑。不要写：
 
 > You are only 35% ready.
 
@@ -294,6 +316,8 @@ V1 内容类型：
 - International student career adaptation guides。
 - AI literacy guides。
 
+V1 先做 KB seed + curated context injection，不急着做完整 vector RAG。Basic RAG 等 demo loop、Advisor Lite 和内容质量验证后再接。
+
 来源分级：
 
 - Green：原创内容、StatCan、O*NET、开放许可数据、授权内容、采访整理 insight。
@@ -313,25 +337,34 @@ V1 内容类型：
 
 ## 6. 推荐技术架构
 
-第一版推荐：
+V1 demo-first 推荐：
 
 - Frontend：Next.js + Tailwind + shadcn/ui。
-- Backend：Next.js API routes 或 Supabase Edge Functions。
-- Auth / DB / Storage / Vector：Supabase。
-- Database：PostgreSQL + pgvector。
-- AI：LLM API + structured outputs。
+- Backend：Next.js API routes。
+- Runtime state：mock store / JSON seed data。
+- KB：本地 YAML seed + loader。
+- AI：LLM API + structured outputs + curated context。
 - Hosting：Vercel。
 
-为什么推荐 Next.js + Supabase：
+V1 不要一开始被完整基础设施拖住。顺序应该是：
 
-- 认证、数据库、文件、向量检索可以快速搭起来。
-- 两人团队不适合一开始维护复杂 backend。
-- 适合先验证用户闭环。
+1. 本地 KB seed 能加载。
+2. Mock API 能跑通 onboarding -> match -> roadmap -> project -> snapshot。
+3. Clickable / coded demo 能让用户理解并反馈。
+4. 再接 Supabase Auth / Postgres / Storage。
+5. 最后再接 pgvector / Basic RAG。
+
+为什么仍然推荐 Next.js + Supabase 作为下一阶段：
+
+- 两人团队不适合维护复杂 backend。
+- Supabase 可以在验证闭环后快速接入 auth、database、storage 和后续 vector。
+- API contract 先稳定，后面从 mock store 替换到 Supabase 的成本更低。
 
 后续再考虑：
 
 - FastAPI service for AI workflows。
 - Redis queue。
+- Supabase Auth / Postgres / Storage / pgvector。
 - More advanced eval pipeline。
 - Institution admin console。
 
@@ -368,19 +401,20 @@ V1 内容类型：
 
 1. Profile Summarizer
 2. Career Path Matcher
-3. Roadmap Generator
-4. Project Recommender
-5. Project Step Assistant
-6. Output Reviewer
-7. Advisor Chat RAG
-8. Dashboard Scoring Engine
-9. Weekly Update Generator
+3. Primary Path Saver
+4. Roadmap Generator
+5. Project Recommender
+6. Project Step Assistant
+7. Growth Snapshot Scoring
+8. Advisor Lite
+9. Weekly Update Generator later
+10. Advisor Chat RAG later
 
 所有 AI 服务尽量输出 JSON，前端再负责展示。这样更稳定，也更容易 debug。
 
 ## 9. 合规和信任层
 
-从 MVP 就要做：
+V1 要做轻量 trust layer，不做复杂合规后台：
 
 - 明确 consent。
 - GPA 用区间，不收过细隐私。
@@ -392,8 +426,12 @@ V1 内容类型：
 - AI answer risk level。
 - 来源引用。
 - human escalation。
-- audit logs。
+
+后续再做：
+
+- audit logs UI。
 - breach playbook 草稿。
+- institution privacy package。
 
 如果未来卖给 BC 公立学校、大学或 college，要准备：
 
@@ -412,8 +450,9 @@ V1 内容类型：
 
 ### Stage 1：B2C + 学生手动验证
 
-- 找全加拿大有专业/职业规划需求的高中生、大学生和 early-career explorers。
-- 可以从 UBC/SFU/BC 访谈开始获客，但产品范围不局限于 BC/Vancouver。
+- 找加拿大大学生 explorer，优先 business / data / tech-adjacent 背景、方向不清晰、项目证据不足的人。
+- 内容覆盖全加拿大，但 GTM 可以从 UBC/SFU/多伦多/滑铁卢/麦吉尔等 campus cluster 开始获客。
+- 高中生样本可以作为 secondary validation，不作为 V1 主增长入口。
 - 做 30-50 个访谈。
 - 手动生成 10 份 Student Growth Report。
 - 测试学生是否愿意按 roadmap 做项目。
@@ -464,18 +503,20 @@ V1 内容类型：
 
 ## 12. 90 天执行计划
 
-### 第 1-2 周：定义和访谈
+### 第 1-2 周：定义、内容和访谈
 
 目标：确认谁真的痛、痛在哪里、愿不愿意行动。
 
 任务：
 
-- 锁定 2 个 ICP。
-- 访谈 30 个学生。
-- 每类至少 10 人：大学低年级、国际学生/新毕业生、高中高年级。
+- 锁定 1 个主 ICP：Canadian university explorers。
+- 高中生、新毕业生、early-career 只作为 secondary mode 记录。
+- 访谈 20-30 个学生。
+- 主样本优先大学低年级、转方向学生、international student、business/data/tech-adjacent 背景。
 - 做 10 份手动 Student Growth Report。
-- 确认 12 条 career path。
-- 写 6 个项目模板的初版。
+- 确认 6 条 seed career path。
+- 写 4 个项目模板的 step-by-step 初版。
+- 建 KB validator，确保 seed content 可被产品读取。
 
 验收：
 
@@ -494,8 +535,8 @@ Figma 页面：
 - Career path recommendation。
 - Roadmap。
 - Project Builder。
-- Dashboard。
-- AI Advisor。
+- Growth Snapshot。
+- Advisor Lite。
 
 验收：
 
@@ -512,13 +553,13 @@ Figma 页面：
 
 - 登录。
 - Student Profile onboarding。
-- 12 career paths。
+- 6 career paths。
 - Career path recommendation。
 - Roadmap generator。
-- 6 project templates。
+- 4 project templates。
 - Project step tracking。
-- AI Advisor basic RAG。
-- Growth Dashboard。
+- Advisor Lite。
+- Growth Snapshot。
 - Source Registry。
 - Consent and deletion basics。
 
@@ -531,6 +572,8 @@ Figma 页面：
 - 完整职业库。
 - 移民建议。
 - 复杂社交功能。
+- Full Dashboard。
+- Basic RAG / vector search。
 
 ### 第 11-13 周：Beta 和试点
 
@@ -555,12 +598,12 @@ Figma 页面：
 
 CS 同学负责：
 
-- Next.js / Supabase 技术实现。
+- Next.js / mock API / later Supabase 技术实现。
 - 数据库结构。
-- RAG pipeline。
+- KB loader 和 later RAG pipeline。
 - AI service prompts and structured outputs。
 - Project Builder state machine。
-- Dashboard scoring。
+- Growth Snapshot scoring。
 - 安全、日志、部署。
 
 Commerce/Econ 负责人负责：
@@ -583,16 +626,16 @@ Commerce/Econ 负责人负责：
 
 ## 14. 现在最该做的 10 件事
 
-1. 确定第一批用户为全加拿大有专业/职业规划需求的高中生、大学生、新毕业生和 early-career explorers，方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
+1. 确定第一批用户为 Canadian university explorers，方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
 2. 写 30 个访谈问题。
-3. 访谈 30-50 个学生。
+3. 访谈 20-30 个主 ICP 学生，另记录少量高中生/毕业生 secondary feedback。
 4. 手动做 10 份 Student Growth Report。
-5. 敲定 12 条 career path 的 schema。
-6. 写 6 个 project templates 的 step-by-step 版本。
-7. 搭 Notion/Airtable 内容库。
-8. 做 Figma clickable prototype。
-9. 搭 Next.js + Supabase MVP。
-10. 招募 100 个 beta users，跑第一个 4 周 project cohort。
+5. 敲定 6 条 seed career path 的 schema 和内容。
+6. 写 4 个 project templates 的 step-by-step 版本。
+7. 搭 repo 内 KB seed，并加 validator。
+8. 做 Figma 或 coded clickable prototype。
+9. 搭 Next.js + mock API MVP。
+10. 招募 20-30 个 beta users，跑第一个 4 周 project cohort。
 
 ## 15. 最关键的取舍
 
@@ -614,16 +657,16 @@ Commerce/Econ 负责人负责：
 - 3 条职业推荐。
 - 4 周路线。
 - 第一个项目。
-- 项目前 3 步。
-- Dashboard 下一步建议。
-- AI Advisor 基于档案回答。
+- 项目 Step 1-2。
+- Growth Snapshot 下一步建议。
+- Advisor Lite 基于档案和 curated KB context 回答。
 - 来源和风险标记。
 
 ## 16. 最终建议
 
 你们现在的项目方向是成立的，但需要从“大愿景”压成一个非常具体的第一战场：
 
-> Career Path + Project Roadmap for Canadian students who are unsure what career fits them and what project they should build next.
+> Career Path + Project Roadmap for Canadian university explorers who are unsure what career fits them and what project they should build next.
 
 第一版只要证明一个学生可以从：
 

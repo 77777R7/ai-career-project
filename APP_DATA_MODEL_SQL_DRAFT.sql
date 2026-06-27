@@ -1,6 +1,10 @@
 -- APP_DATA_MODEL_SQL_DRAFT.sql
 -- Date: 2026-06-26
 -- Purpose: Supabase/Postgres draft schema for the MVP runtime data model.
+-- Update: 2026-06-27
+--   This is now treated as a Phase 2 persistence draft. The first runnable
+--   V1 demo should use a mock runtime store and keep API contracts stable
+--   before connecting Supabase/Postgres.
 -- Source docs:
 --   - DATA_SCHEMA_ZH.md
 --   - ONBOARDING_FLOW_ZH.md

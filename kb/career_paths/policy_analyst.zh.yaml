@@ -1,0 +1,143 @@
+id: career_path.policy_analyst
+title: Policy Analyst
+canonical_slug: policy-analyst
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+tags:
+  - policy
+  - research
+  - international-relations
+owner: content
+created_at: 2026-06-27
+updated_at: 2026-06-27
+last_reviewed_at: 2026-06-27
+next_review_due: 2026-09-27
+source_ids:
+  - source.jobbank_career_planning
+  - source.statcan_open_license
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+summary: Policy analysts research public issues, compare evidence, understand stakeholders, and write recommendations for organizations or governments.
+related_majors:
+  - International Relations
+  - Political Science
+  - Economics
+  - Public Policy
+  - Statistics
+daily_tasks:
+  - Research policy problems and evidence.
+  - Summarize official sources and stakeholder perspectives.
+  - Compare policy options and tradeoffs.
+  - Write briefs, memos, or recommendations.
+best_fit_for:
+  - Students who enjoy social issues, research, writing, and evidence.
+  - Students interested in government, nonprofits, public affairs, or international topics.
+  - Students who like explaining tradeoffs rather than only building products.
+common_challenges:
+  - Students need writing samples and evidence of research judgment.
+  - Policy questions can be complex and politically sensitive.
+reflection_questions:
+  - Do you enjoy reading sources and turning them into a clear recommendation?
+  - Are you comfortable explaining uncertainty and tradeoffs?
+support_strategies:
+  - Start with a short policy brief using official Canadian sources.
+required_skills:
+  - skill.policy_research
+  - skill.data_storytelling
+  - skill.excel
+recommended_courses:
+  - Public policy
+  - Economics
+  - Statistics
+  - International relations
+high_school_preparation:
+  - Practice comparing public issues using credible sources.
+  - Join debate, Model UN, student government, or social impact clubs.
+university_preparation:
+  - Write one evidence-backed policy brief.
+  - Learn to cite official sources and separate claims from recommendations.
+entry_level_roles:
+  - Policy Analyst Intern
+  - Research Assistant
+  - Public Affairs Intern
+  - Program Analyst Intern
+internship_keywords:
+  - policy analyst intern
+  - research assistant
+  - public policy intern
+  - program analyst intern
+project_ideas:
+  - project.canada_ai_workforce_policy_brief
+  - project.major_career_exploration_map
+first_project_recommendation:
+  project_id: project.canada_ai_workforce_policy_brief
+  reason: A short policy brief lets the student show research, source judgment, and recommendation writing.
+career_progression:
+  entry_level:
+    - Policy Analyst Intern
+    - Research Assistant
+  mid_level:
+    - Policy Analyst
+    - Program Analyst
+  advanced:
+    - Senior Policy Analyst
+    - Policy Manager
+salary_note: Policy roles vary by sector, employer, geography, and experience. Do not present outcomes as guaranteed.
+risks_and_challenges:
+  - Writing quality and source judgment matter as much as interest in public issues.
+  - Students should avoid unsupported claims or legal advice.
+misconceptions:
+  - Policy work is not only opinions; it requires evidence, tradeoff analysis, and clear writing.
+alternative_paths:
+  - career_path.consultant
+  - career_path.business_analyst
+  - career_path.data_analyst
+canadian_context:
+  - Canadian policy-related student roles may appear in government, nonprofits, universities, think tanks, and public affairs organizations.
+ai_usage:
+  used_by:
+    - career_path_matcher
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - summary
+    - required_skills
+    - common_challenges
+    - first_project_recommendation
+    - canadian_context
+  display_fields:
+    - title
+    - summary
+    - daily_tasks
+    - required_skills
+    - first_project_recommendation
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - legal_advice
+    - immigration_advice
+  user_visible: true
+compliance_notes:
+  - Policy guidance should stay educational and should not become legal advice.
+change_log:
+  - date: 2026-06-27
+    change: Added after GPT Pro MVP scope review.
+    editor: Codex

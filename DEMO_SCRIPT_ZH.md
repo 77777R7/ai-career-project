@@ -2,6 +2,8 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估，Demo A 是 V1 primary demo；Demo B 是 secondary expansion demo，用于证明高中生可用但不是第一版主入口。
+
 ## 1. 文档目的
 
 本文件定义第一版 MVP 的可演示脚本。
@@ -10,7 +12,7 @@
 
 Demo 要证明的核心闭环：
 
-> Profile -> Career Match -> Roadmap -> Project Builder -> Dashboard -> AI Advisor
+> Profile -> Career Match -> Save Primary Path -> 4-week Roadmap -> Project Builder Step 1-2 -> Growth Snapshot -> Advisor Lite
 
 第一版 demo 使用两个中性样例用户：
 
@@ -21,7 +23,7 @@ Demo 要证明的核心闭环：
 
 ## 2. Demo 总原则
 
-### 2.1 不按年级限制
+### 2.1 不按年级硬限制，但 demo 优先大学生
 
 产品可服务所有有专业/职业规划需求的人：
 
@@ -30,7 +32,7 @@ Demo 要证明的核心闭环：
 - 新毕业生。
 - early-career explorers。
 
-Demo User B 是高中生样例，但不代表产品只服务某个年级。
+Demo User A 是第一版主 demo。Demo User B 是高中生样例，用于 secondary mode，不代表 V1 要做完整高中升学规划。
 
 ### 2.2 不做纯 chatbot demo
 
@@ -40,10 +42,10 @@ Demo 入口不是聊天框。Demo 必须先展示平台结构：
 2. Career Match
 3. Roadmap
 4. Project Builder
-5. Dashboard
-6. AI Advisor
+5. Growth Snapshot
+6. Advisor Lite
 
-AI Advisor 是最后的增强入口，不是产品主体。
+Advisor Lite 是最后的增强入口，不是产品主体。
 
 ### 2.3 不做大平台 demo
 
@@ -162,7 +164,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
   - path_id: career_path.data_analyst
     rank: 2
     fit_label: Worth exploring
@@ -171,7 +173,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
   - path_id: career_path.consultant
     rank: 3
     fit_label: Test with a small project
@@ -180,7 +182,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
 ```
 
 Visible note:
@@ -248,8 +250,8 @@ Start recommended project
 Project:
 
 ```yaml
-project_id: project.vancouver_housing_dashboard
-title: Vancouver Housing Affordability Dashboard
+project_id: project.canadian_housing_cost_living_dashboard
+title: Canadian Housing and Cost of Living Dashboard
 ```
 
 Positioning:
@@ -295,17 +297,31 @@ Suggested revision:
 How has the rent-to-income burden changed for young people in Vancouver over the last decade, based on available public data?
 ```
 
+Step 2:
+
+```yaml
+step_number: 2
+title: Select a dataset
+expected_output: One public data source note with why it fits the research question.
+```
+
+User submission:
+
+```text
+I will start with Statistics Canada housing/rent and income data, and use Vancouver as the default demo city. If the first dataset is too broad, I will narrow to one geography and one time window.
+```
+
 Expected system state:
 
 ```yaml
-selected_project: project.vancouver_housing_dashboard
-completed_project_steps: 1
-latest_completed_action: action.define_project_question
+selected_project: project.canadian_housing_cost_living_dashboard
+completed_project_steps: 2
+latest_completed_action: action.select_dataset
 ```
 
-### 3.8 Screen 6: Dashboard
+### 3.8 Screen 6: Growth Snapshot
 
-Dashboard title:
+Snapshot title:
 
 ```text
 Your Growth Snapshot
@@ -320,8 +336,8 @@ career_clarity:
   reason: Profile completed, 3 paths compared, and one path saved to test.
 project_readiness:
   metric_id: metric.project_readiness
-  label: Needs a starting project
-  reason: You selected a project and completed Step 1. The next useful step is selecting a dataset.
+  label: Evidence building
+  reason: You selected a project, defined a research question, and chose a starting dataset.
 skill_readiness:
   metric_id: metric.skill_readiness
   label: Needs a starting skill focus
@@ -331,16 +347,16 @@ skill_readiness:
 User-facing recommendation:
 
 ```text
-Your next growth opportunity is project evidence. This week, select one public dataset and explain why it fits your question.
+Your next growth opportunity is project evidence. This week, make one simple chart that answers part of your question.
 ```
 
 CTA:
 
 ```text
-Continue to dataset selection
+Continue to first chart
 ```
 
-### 3.9 Screen 7: AI Advisor
+### 3.9 Screen 7: Advisor Lite
 
 User asks:
 
@@ -348,14 +364,14 @@ User asks:
 Should I choose Business Analyst or Data Analyst first?
 ```
 
-AI Advisor expected answer:
+Advisor Lite expected answer:
 
 ```text
 Based on your profile, Business Analyst is the stronger first path to test because you like economics, business, and market analysis, and you do not want a pure coding-heavy route right now.
 
-Data Analyst is still worth exploring, but your current gaps are SQL, dashboard building, and project evidence. The Vancouver housing dashboard is a good low-risk way to test both paths because it can show business analysis and data storytelling.
+Data Analyst is still worth exploring, but your current gaps are SQL, dashboard building, and project evidence. The Canadian housing and cost-of-living dashboard is a good low-risk way to test both paths because it can show business analysis and data storytelling.
 
-My recommendation: keep Business Analyst as your primary path for now, use Data Analyst as your technical exploration path, and complete the dataset selection step this week.
+My recommendation: keep Business Analyst as your primary path for now, use Data Analyst as your technical exploration path, and make one first chart this week.
 ```
 
 Safety requirements:
@@ -462,7 +478,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
   - path_id: career_path.data_analyst
     rank: 2
     fit_label: Test with a small project
@@ -471,7 +487,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
   - path_id: career_path.consultant
     rank: 3
     fit_label: Worth exploring
@@ -480,7 +496,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
 ```
 
 Visible caveat:
@@ -561,7 +577,7 @@ saved_primary_path: career_path.business_analyst
 completed_reflection_or_project_action: action.define_project_question
 ```
 
-### 4.8 Screen 6: Dashboard
+### 4.8 Screen 6: Growth Snapshot
 
 Expected metrics:
 
@@ -586,7 +602,7 @@ User-facing recommendation:
 Your next step is not choosing your whole future. It is finding one public source that helps answer your question.
 ```
 
-### 4.9 Screen 7: AI Advisor
+### 4.9 Screen 7: Advisor Lite
 
 User asks:
 
@@ -594,14 +610,14 @@ User asks:
 Should I choose Business, Economics, Data Science, or International Relations?
 ```
 
-AI Advisor expected answer:
+Advisor Lite expected answer:
 
 ```text
 Based on your profile, you do not need to choose a final major today. The strongest first test is a business/economics exploration path because it connects your interest in economics, social studies, writing, and real-world problems.
 
 Data Science is also worth testing, but since you do not like advanced coding as a starting point, begin with spreadsheet-based data exploration before deciding whether to go deeper technically.
 
-International Relations is still relevant to your interests, but our current MVP knowledge base does not yet include a dedicated policy path. A good next step is to frame one question that connects economics, policy, and student life, then find one public source.
+International Relations is still relevant to your interests, and the policy path can be explored through a small policy brief. A good next step is to frame one question that connects economics, policy, and student life, then find one public source.
 ```
 
 Safety requirements:
@@ -623,8 +639,8 @@ The clickable prototype should include:
 6. 4-week roadmap
 7. Project builder
 8. Project step review
-9. Growth dashboard
-10. AI Advisor
+9. Growth Snapshot
+10. Advisor Lite
 
 ## 6. Required Backend State For MVP
 
@@ -661,12 +677,12 @@ user_project:
   completed_project_steps:
   latest_action_id:
 
-dashboard_metrics:
+growth_snapshot_metrics:
   metric.career_clarity:
   metric.project_readiness:
   metric.skill_readiness:
 
-advisor_context:
+advisor_lite_context:
   profile_summary:
   saved_primary_path:
   current_roadmap:
@@ -683,9 +699,9 @@ Demo passes only if:
 - User saves 1 primary path.
 - Roadmap generates a 4-week plan.
 - Project/action starts.
-- Project Step 1 or exploration action is completed.
-- Dashboard updates from real state.
-- AI Advisor answers using profile + path + roadmap + project/action progress.
+- Project Step 1-2 or exploration action is completed.
+- Growth Snapshot updates from real state.
+- Advisor Lite answers using profile + path + roadmap + project/action progress.
 - No screen depends on a generic chat box as the first product experience.
 
 Demo fails if:
@@ -721,4 +737,4 @@ Reason:
 - Career Matcher rules exist.
 - Demo flow is now concrete.
 
-The next useful step is to define the product data objects that store profile, match result, roadmap, project progress, dashboard metrics, advisor messages, consent, and audit logs.
+The next useful step is to define the product data objects that store profile, match result, roadmap, project progress, Growth Snapshot metrics, Advisor Lite messages, consent, and later audit logs.

@@ -1,0 +1,28 @@
+id: skill.programming_fundamentals
+name: Programming Fundamentals
+category: technology
+summary: Ability to write simple programs, understand control flow, use data structures, debug errors, and explain how code solves a problem.
+related_career_paths:
+  - career_path.software_engineer
+  - career_path.data_analyst
+prerequisite_skills: []
+beginner_definition: Can write small scripts or functions and explain variables, loops, conditionals, and basic debugging.
+intermediate_definition: Can build a small app or data workflow, use version control basics, and structure code across files.
+advanced_definition: Can design maintainable systems, reason about performance, and collaborate in a production codebase.
+evidence_examples:
+  - Built a small web app or automation script.
+  - Solved a practical problem with code and documented the result.
+proof_artifacts:
+  - github_repository
+  - small_app
+  - technical_writeup
+learning_resources: []
+assessment_method: Review whether the student can explain what the code does, why it works, and what they would improve.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids:
+  - source.onet_database
+risk_level: low
+content_maturity: seed
+visibility: student_visible

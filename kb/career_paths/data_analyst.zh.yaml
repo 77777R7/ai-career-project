@@ -81,9 +81,9 @@ internship_keywords:
   - analytics intern
   - reporting analyst
 project_ideas:
-  - project.vancouver_housing_dashboard
+  - project.canadian_housing_cost_living_dashboard
 first_project_recommendation:
-  project_id: project.vancouver_housing_dashboard
+  project_id: project.canadian_housing_cost_living_dashboard
   reason: Strong beginner project for students with business, economics, or city-data interests.
 career_progression:
   entry_level:

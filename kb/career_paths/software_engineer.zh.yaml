@@ -1,0 +1,141 @@
+id: career_path.software_engineer
+title: Software Engineer
+canonical_slug: software-engineer
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+tags:
+  - software
+  - technology
+  - engineering
+owner: content
+created_at: 2026-06-27
+updated_at: 2026-06-27
+last_reviewed_at: 2026-06-27
+next_review_due: 2026-09-27
+source_ids:
+  - source.onet_database
+  - source.jobbank_career_planning
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+summary: Software engineers design, build, test, and maintain software systems that solve user or business problems.
+related_majors:
+  - Computer Science
+  - Software Engineering
+  - Data Science
+  - Cognitive Systems
+  - Statistics
+daily_tasks:
+  - Write and review code.
+  - Debug software issues.
+  - Design features or technical systems.
+  - Collaborate with product, design, data, and engineering teammates.
+best_fit_for:
+  - Students who enjoy building things with code.
+  - Students willing to practice programming fundamentals and debugging.
+  - Students who like structured problem-solving and technical depth.
+common_challenges:
+  - Students need proof of building ability, not only course completion.
+  - Interview preparation and project depth can take time.
+reflection_questions:
+  - Do you enjoy making a working system, even when debugging is frustrating?
+  - Are you willing to practice fundamentals consistently?
+support_strategies:
+  - Start with a small app or automation project and explain the design decisions.
+required_skills:
+  - skill.programming_fundamentals
+  - skill.sql
+  - skill.data_storytelling
+recommended_courses:
+  - Intro programming
+  - Data structures
+  - Software design
+  - Databases
+high_school_preparation:
+  - Build a small website, script, or app.
+  - Join coding clubs or beginner hackathons if available.
+university_preparation:
+  - Build one small project that solves a real user problem.
+  - Practice data structures gradually.
+entry_level_roles:
+  - Software Engineer Intern
+  - Web Developer Intern
+  - Backend Developer Intern
+  - Junior Software Developer
+internship_keywords:
+  - software engineer intern
+  - developer intern
+  - web developer intern
+  - backend intern
+project_ideas:
+  - project.ai_student_growth_prd
+first_project_recommendation:
+  project_id: project.ai_student_growth_prd
+  reason: Before building, the student can define a focused product problem and scope a small feature; a later technical build can extend it.
+career_progression:
+  entry_level:
+    - Software Engineer Intern
+    - Junior Software Developer
+  mid_level:
+    - Software Engineer
+    - Full-stack Developer
+  advanced:
+    - Senior Software Engineer
+    - Engineering Manager
+salary_note: Compensation varies by employer, location, role type, and experience. Do not frame this path as a guaranteed outcome.
+risks_and_challenges:
+  - Entry-level competition can be high.
+  - Students should test whether they enjoy sustained coding and debugging.
+misconceptions:
+  - Software engineering is not only coding fast; it also requires communication, design judgment, and maintainability.
+alternative_paths:
+  - career_path.product_manager
+  - career_path.data_analyst
+canadian_context:
+  - Canadian postings may use software developer, web developer, full-stack developer, backend developer, or software engineer titles.
+ai_usage:
+  used_by:
+    - career_path_matcher
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - summary
+    - required_skills
+    - common_challenges
+    - first_project_recommendation
+    - canadian_context
+  display_fields:
+    - title
+    - summary
+    - daily_tasks
+    - required_skills
+    - first_project_recommendation
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - legal_advice
+    - immigration_advice
+  user_visible: true
+compliance_notes:
+  - Do not imply coding skill alone guarantees internship success.
+change_log:
+  - date: 2026-06-27
+    change: Added after GPT Pro MVP scope review.
+    editor: Codex

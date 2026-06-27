@@ -1,0 +1,135 @@
+id: project.ai_student_growth_prd
+title: AI Student Growth Platform PRD
+canonical_slug: ai-student-growth-platform-prd
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+tags:
+  - product
+  - prd
+  - business
+  - ai
+owner: content
+created_at: 2026-06-27
+updated_at: 2026-06-27
+last_reviewed_at: 2026-06-27
+next_review_due: 2026-09-27
+source_ids:
+  - source.original_spreadsheet_guide
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+target_career_paths:
+  - career_path.product_manager
+  - career_path.business_analyst
+difficulty: beginner
+estimated_time: 2-4 weeks
+skills:
+  - skill.product_thinking
+  - skill.business_analysis
+  - skill.data_storytelling
+prerequisites:
+  skills: []
+  tools:
+    - Google Docs
+    - Notion
+  accounts:
+    - none
+project_goal: Write a concise product requirements document for an AI student growth feature, showing user problem framing, product scope, success metrics, and tradeoffs.
+final_outputs:
+  - problem_statement
+  - user_story
+  - feature_scope
+  - success_metrics
+  - prd
+steps:
+  - step_number: 1
+    title: Define the user problem
+    objective: Choose one student planning problem and write a focused product question.
+    estimated_time: 30 minutes
+    required_tools:
+      - Google Docs
+    input_needed:
+      - target_user
+      - student_pain_point
+    instructions:
+      - Pick one target user, such as a first-year university explorer.
+      - Write the user's current problem in plain language.
+      - Avoid jumping into features before defining the problem.
+    expected_output:
+      type: text
+      description: A 3-5 sentence problem statement and one user story.
+    completion_checklist:
+      - Target user is specific.
+      - Problem is clear.
+      - User story explains the desired outcome.
+    ai_help_prompt: Help the student sharpen the problem statement without inventing user research.
+    review_rubric:
+      clarity: 0-3
+      user_specificity: 0-3
+      feasibility: 0-3
+    common_mistakes:
+      - Starting with features instead of user problems.
+      - Defining a user group too broadly.
+    next_step_trigger: After the problem is clear, help the student define feature scope and success metrics.
+    related_action_id: action.define_project_question
+    related_metric_ids:
+      - metric.project_readiness
+rubric:
+  project_fit:
+    description: The project should show product thinking and clear tradeoffs.
+  evidence_quality:
+    description: The PRD should make the student's reasoning visible.
+data_sources: []
+ai_support_level:
+  allowed:
+    - explain_concepts
+    - review_student_output
+    - suggest_next_steps
+  not_allowed:
+    - fabricate_user_research
+    - guarantee_outcome
+academic_integrity_notes:
+  - This project is for portfolio learning and product thinking practice.
+ai_usage:
+  used_by:
+    - project_builder
+    - roadmap_generator
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - project_goal
+    - skills
+    - steps
+    - ai_support_level
+  display_fields:
+    - title
+    - project_goal
+    - difficulty
+    - estimated_time
+    - final_outputs
+    - steps
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - review
+  restricted_response_modes:
+    - fabricate_results
+    - guarantee_outcome
+  user_visible: true
+compliance_notes:
+  - Do not imply a PRD alone proves product manager readiness; frame it as a first evidence artifact.
+change_log:
+  - date: 2026-06-27
+    change: Added after GPT Pro suggested non-data product project.
+    editor: Codex

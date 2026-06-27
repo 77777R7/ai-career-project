@@ -82,9 +82,9 @@ internship_keywords:
   - business analyst intern
   - associate consultant intern
 project_ideas:
-  - project.vancouver_housing_dashboard
+  - project.canadian_housing_cost_living_dashboard
 first_project_recommendation:
-  project_id: project.vancouver_housing_dashboard
+  project_id: project.canadian_housing_cost_living_dashboard
   reason: Useful as a first evidence project for structured analysis, data-backed communication, and recommendation writing.
 career_progression:
   entry_level:

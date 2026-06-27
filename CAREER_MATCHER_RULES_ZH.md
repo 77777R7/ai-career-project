@@ -2,6 +2,8 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估，V1 matcher 主线按 Canadian university explorer 优先设计；高中生、新毕业生和 early-career users 支持进入，但作为 secondary mode 调整表达和 action 难度。
+
 ## 1. 文档目的
 
 本文件定义 Career Path Matcher V1 的输入、打分逻辑、输出结构、风险表达和测试标准。
@@ -31,7 +33,7 @@ V1 不做机器学习模型。V1 使用：
 Career Matcher 位于：
 
 ```text
-Student Profile -> Career Path Matcher -> Roadmap -> Project Builder -> Dashboard -> AI Advisor
+Student Profile -> Career Path Matcher -> Save Primary Path -> Roadmap -> Project Builder -> Growth Snapshot -> Advisor Lite
 ```
 
 它读取：
@@ -56,7 +58,7 @@ Student Profile -> Career Path Matcher -> Roadmap -> Project Builder -> Dashboar
 
 ## 3. 支持用户范围
 
-Career Matcher 不按年级限制使用。
+Career Matcher 不按年级硬限制使用，但 V1 ranking 和 demo 优先服务 Canadian university explorers。
 
 支持用户：
 
@@ -67,7 +69,7 @@ Career Matcher 不按年级限制使用。
 - 国际学生。
 - undecided users。
 
-只要用户有专业/职业规划、项目积累、方向探索或长期成长需求，就可以进入 matcher。
+只要用户有专业/职业规划、项目积累、方向探索或长期成长需求，就可以进入 matcher。高中生输出要表达为探索路线；大学生输出要更直接连接 internship/project readiness。
 
 第一版内容方向先聚焦：
 
@@ -81,18 +83,18 @@ Career Matcher 不按年级限制使用。
 - International Relations
 - undecided
 
-第一版推荐路径先以 KB 已有 path 为准：
+第一版推荐路径先以 KB 已有 seed path 为准：
 
 - `career_path.business_analyst`
 - `career_path.data_analyst`
 - `career_path.consultant`
+- `career_path.product_manager`
+- `career_path.software_engineer`
+- `career_path.policy_analyst`
 
 后续应补：
 
-- Software Engineer
-- Product Manager
 - Finance Analyst
-- Policy Analyst
 - AI Product Manager
 - Marketing / Growth
 - UX Designer
@@ -602,7 +604,7 @@ recommended_paths:
     first_action:
       action_id: action.define_project_question
       title: Define a project research question
-    recommended_project_id: project.vancouver_housing_dashboard
+    recommended_project_id: project.canadian_housing_cost_living_dashboard
     uncertainty:
       - No resume or project history was provided.
     risk_notes:
@@ -642,9 +644,9 @@ title: Define your project research question
 
 V1 默认：
 
-- Data Analyst -> `project.vancouver_housing_dashboard`
-- Business Analyst -> `project.vancouver_housing_dashboard`
-- Consultant -> `project.vancouver_housing_dashboard` as exploration project, until consulting-specific project exists
+- Data Analyst -> `project.canadian_housing_cost_living_dashboard`
+- Business Analyst -> `project.canadian_housing_cost_living_dashboard`
+- Consultant -> `project.canadian_housing_cost_living_dashboard` as exploration project, until consulting-specific project exists
 
 如果用户不在 Vancouver：
 
@@ -785,7 +787,7 @@ Expected explanation：
 
 Expected project：
 
-- `project.vancouver_housing_dashboard`
+- `project.canadian_housing_cost_living_dashboard`
 
 Expected first action：
 

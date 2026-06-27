@@ -2,17 +2,19 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估，V1 主 ICP 收窄为 Canadian university explorers；高中生、新毕业生和 early-career users 保留为 secondary / demo / later expansion。
+
 ## 1. 文档目的
 
 本文件用于锁定第一版 MVP 的目标用户、demo persona 和用户故事。
 
-后续所有产品、KB、Career Matcher、Roadmap、Project Builder、Dashboard 和 AI Advisor 的优先级，都先按这个文件判断。
+后续所有产品、KB、Career Matcher、Roadmap、Project Builder、Growth Snapshot 和 Advisor Lite 的优先级，都先按这个文件判断。
 
-第一版不按年级卡死用户。只要用户有职业规划、专业选择、项目积累或长期成长规划需求，都可以使用。
+第一版不按年级硬性排除用户。只要用户有职业规划、专业选择、项目积累或长期成长规划需求，都可以使用；但 V1 的产品设计、demo 和验证指标先按大学生 explorer 优先。
 
 第一版要验证的核心问题是：
 
-> 一个加拿大有专业/职业规划需求的学生或 early-career explorer，在方向不清楚、项目经历不足的情况下，是否愿意填写 profile，并跟着平台选择方向、生成 roadmap、开始第一个项目。
+> 一个加拿大大学生 explorer，在方向不清楚、项目经历不足的情况下，是否愿意填写 profile，并跟着平台选择方向、生成 4-week roadmap、开始第一个项目。
 
 ## 2. 第一版主 ICP
 
@@ -20,19 +22,18 @@
 
 第一版主 ICP：
 
-> 全加拿大有专业/职业规划需求的高中生、大学生、新毕业生和 early-career explorers。内容方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
+> Canadian university explorers：在加拿大读大学或 college，来自 business / data / tech-adjacent 背景，职业方向不清晰、项目证据不足，想在 4 周内从“迷茫”进入“选定主路径并开始项目”的学生。内容方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
 
 更具体地说：
 
-> 用户知道自己需要为大学专业、项目积累、实习或职业方向做准备，但不确定自己适合 Data Analyst、Business Analyst、Consulting、Finance、Product、Software、Policy 或 AI-related paths，也不知道应该做什么项目来验证兴趣和证明能力。
+> 用户知道自己需要为实习、项目积累或职业方向做准备，但不确定自己适合 Data Analyst、Business Analyst、Consulting、Product、Software、Policy 或 AI-related paths，也不知道应该做什么项目来验证兴趣和证明能力。
 
 ### 2.2 主 ICP 的典型特征
 
 学业阶段：
 
-- 高中生，不限定具体年级。
-- 大学生，不限定具体年级，但第一批验证更关注低年级和转方向学生。
-- 新毕业生和 early-career explorers，如果他们的核心问题仍然是方向、项目和成长路线。
+- 大学生或 college student，不限定具体年级，但第一批验证更关注低年级、转方向学生、国际学生和缺项目证据的学生。
+- 高中生、新毕业生和 early-career explorers 如果核心问题仍然是方向、项目和成长路线，可以作为 secondary mode 使用。
 - 当前专业、目标专业或兴趣方向先限定为 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
 - 还没有形成清晰职业路径。
 
@@ -45,7 +46,6 @@
 典型痛点：
 
 - 不知道专业和职业之间怎么对应。
-- 高中生不知道大学专业和未来职业之间怎么对应。
 - 不知道 Data Analyst、Business Analyst、Consulting、Finance、Product 的真实差异。
 - 没有像样的 portfolio project。
 - 不知道先学 SQL、Excel、Python、case interview 还是 resume。
@@ -62,9 +62,27 @@
 
 ## 3. 次级 ICP
 
-次级 ICP 不是第一版主入口，但会影响产品设计。注意：高中生现在属于主 ICP，不再按年级限制。
+次级 ICP 不是第一版主入口，但会影响产品设计。高中生不被硬性排除，但 V1 不为高中生做完整升学规划。
 
-### 3.1 国际学生
+### 3.1 高中生 Exploration Mode
+
+定义：
+
+> 对大学专业、职业方向和项目探索有需求的高中生，不限定具体年级。
+
+为什么重要：
+
+- 高中生也有 major-career fit 和项目探索需求。
+- 家长可能参与付费和决策。
+- 但高中生会把产品带向升学规划、课外活动、申请包装和未成年人隐私，复杂度更高。
+
+第一版处理方式：
+
+- 保留 demo persona 和轻量 exploration project。
+- 输出表达为“探索路线”和“验证兴趣”，不表达为就业承诺或录取承诺。
+- 不做完整高中升学规划、选校规划、申请文书或家长 dashboard。
+
+### 3.2 国际学生
 
 定义：
 
@@ -83,7 +101,7 @@
 - 不回答 PGWP、签证、身份状态结论。
 - 可以提供官方资源导航和 advisor question list。
 
-### 3.2 已经进入密集求职阶段的用户
+### 3.3 已经进入密集求职阶段的用户
 
 定义：
 
@@ -100,7 +118,7 @@
 - 如果他们只需要求职投递工具，则不作为主产品流。
 - 不优先做 application tracker、auto-apply、job board。
 
-### 3.3 家长
+### 3.4 家长
 
 定义：
 
@@ -172,31 +190,31 @@ V1 暂不优先做这些独立产品流：
 - 用户能进入 Project Builder。
 - 用户能完成 Step 1：Define research question。
 - 系统保存 project progress。
-- Dashboard 的 Project Readiness 更新。
+- Growth Snapshot 的 Project Readiness 更新。
 
-### User Story 4: Dashboard 告诉我下一步
+### User Story 4: Growth Snapshot 告诉我下一步
 
 作为一名正在探索职业方向的学生，我想看到自己的 Career Clarity、Skill Readiness 和 Project Readiness，这样我知道现在最该补什么。
 
 验收标准：
 
-- Dashboard 从真实 profile、path、roadmap、project progress 计算。
+- Growth Snapshot 从真实 profile、path、roadmap、project progress 计算。
 - 不使用羞辱式或焦虑式语言。
 - 显示 strongest area。
 - 显示 next growth opportunity。
 - 显示 this week next action。
 
-### User Story 5: AI Advisor 根据我的状态回答
+### User Story 5: Advisor Lite 根据我的状态回答
 
-作为一名学生，我想问 AI Advisor “我该选 Data Analyst 还是 Business Analyst？” 并得到基于我 profile、roadmap 和 project progress 的回答，而不是普通 ChatGPT 式泛泛建议。
+作为一名学生，我想问 Advisor Lite “我该选 Data Analyst 还是 Business Analyst？” 并得到基于我 profile、roadmap 和 project progress 的回答，而不是普通 ChatGPT 式泛泛建议。
 
 验收标准：
 
-- AI 引用用户 profile。
-- AI 引用 primary path 或 saved paths。
-- AI 给出比较框架。
-- AI 给出下一步行动。
-- AI 不保证 offer、录取或人生最优路径。
+- Advisor Lite 引用用户 profile。
+- Advisor Lite 引用 primary path 或 saved paths。
+- Advisor Lite 给出比较框架。
+- Advisor Lite 给出下一步行动。
+- Advisor Lite 不保证 offer、录取或人生最优路径。
 - 高风险问题会转官方资源或 human advisor。
 
 ## 6. Demo Persona
@@ -303,11 +321,11 @@ Consultant：
 
 项目：
 
-> Vancouver Housing Affordability Dashboard
+> Canadian Housing and Cost of Living Dashboard
 
 项目 ID：
 
-> `project.vancouver_housing_dashboard`
+> `project.canadian_housing_cost_living_dashboard`
 
 为什么推荐：
 
@@ -326,10 +344,11 @@ Demo 必须跑到：
 3. 系统推荐 3 条 path。
 4. Demo User A 保存 Business Analyst 或 Data Analyst 为 primary path。
 5. 系统生成 4 周 roadmap。
-6. 系统推荐 Vancouver Housing Dashboard。
+6. 系统推荐 Canadian Housing and Cost of Living Dashboard。
 7. Demo User A 完成 Project Step 1：Define research question。
-8. Dashboard 的 Project Readiness 从 0 更新到一个低但真实的分数。
-9. AI Advisor 给出下一步：Select a dataset。
+8. Demo User A 完成 Project Step 2：Select a dataset。
+9. Growth Snapshot 的 Project Readiness 从 0 更新到一个低但真实的分数。
+10. Advisor Lite 给出下一步：Make the first chart。
 
 如果 demo 只停在 career recommendation，就还不是完整 MVP。
 
@@ -405,7 +424,7 @@ main_question: I do not know whether I should explore business, economics, data 
 4. Demo User B 保存一个 primary exploration path。
 5. 系统生成 4 周 exploration roadmap。
 6. 系统推荐一个 beginner project 或 career reflection action。
-7. Dashboard 更新 Career Clarity / Project Readiness 的早期信号。
+7. Growth Snapshot 更新 Career Clarity / Project Readiness 的早期信号。
 
 ## 7. 用户故事优先级
 
@@ -417,13 +436,13 @@ main_question: I do not know whether I should explore business, economics, data 
 - 保存 primary path。
 - 生成 4 周 roadmap。
 - 推荐第一个 project。
-- 完成 project Step 1。
-- Dashboard 更新 Project Readiness。
+- 完成 project Step 1-2。
+- Growth Snapshot 更新 Project Readiness。
 - 对高中生支持 Career Discovery Track 的低风险版本。
 
 ### P1: Beta 前支持
 
-- AI Advisor 根据 profile + path + roadmap + project progress 回答。
+- Advisor Lite 根据 profile + path + roadmap + project progress 回答。
 - 支持 blocked / need help 状态。
 - 生成 resume bullet draft。
 - 生成 basic interview story。
@@ -557,7 +576,7 @@ Policy / International Relations exploration 应该中：
 5. 你有没有做过 portfolio project？如果没有，最大的阻碍是什么？
 6. 你更想要 3 个月路线图，还是本周任务？
 7. 如果 AI 推荐一个项目并带你做第一步，你愿意开始吗？
-8. 你希望 dashboard 告诉你什么？什么表达会让你焦虑？
+8. 你希望 Growth Snapshot 告诉你什么？什么表达会让你焦虑？
 9. 你会为这个工具付费吗？谁会付费，你还是父母？
 10. 你觉得它和 ChatGPT 最大区别应该是什么？
 
@@ -578,13 +597,13 @@ Policy / International Relations exploration 应该中：
 
 后续工作按以下约束执行：
 
-- Career Matcher 先服务 Demo User A 这类用户。
-- Career Matcher 同时服务 Demo User A 和 Demo User B 两类用户。
-- Roadmap 先服务 university_beginner 和 high_school_explorer 的基础版本。
-- Project Builder 先跑通 Vancouver Housing Dashboard。
-- Dashboard 先把 Project Readiness 算清楚。
-- AI Advisor 先回答 career/path/project/action 问题。
-- RAG 先围绕 Job Bank、O*NET、StatCan、Vancouver Open Data 做小范围官方来源。
+- Career Matcher 先服务 Demo User A 这类 Canadian university explorer。
+- Demo User B 保留为 secondary mode，用于验证高中生 exploration 表达。
+- Roadmap 先服务 university_beginner 的基础版本，高中生 exploration roadmap 作为轻量样例。
+- Project Builder 先跑通 Canadian Housing and Cost of Living Dashboard。
+- Growth Snapshot 先把 Project Readiness 算清楚。
+- Advisor Lite 先回答 career/path/project/action 问题。
+- RAG 后置；先用 curated context 围绕 Job Bank、O*NET、StatCan 和项目数据源做小范围官方来源。
 - 不为了家长、学校、雇主而打乱第一版学生端闭环。
 
 ## 12. 下一步

@@ -61,7 +61,7 @@ three_month_plan:
         - skill.data_storytelling
       recommended_actions:
         - action.select_dataset
-      recommended_project_id: project.vancouver_housing_dashboard
+      recommended_project_id: project.canadian_housing_cost_living_dashboard
       completion_criteria:
         - Student selects a dataset and records source details.
       related_metric_ids:
@@ -71,7 +71,7 @@ three_month_plan:
       target_skills:
         - skill.excel
         - skill.data_visualization
-      recommended_project_id: project.vancouver_housing_dashboard
+      recommended_project_id: project.canadian_housing_cost_living_dashboard
       completion_criteria:
         - Student completes at least three project steps.
         - Student creates one chart or dashboard draft.
@@ -107,7 +107,7 @@ required_skills:
   - skill.excel
   - skill.data_storytelling
 recommended_projects:
-  - project.vancouver_housing_dashboard
+  - project.canadian_housing_cost_living_dashboard
 common_blockers:
   - Student chooses a project topic that is too broad.
   - Student cannot find a suitable dataset.

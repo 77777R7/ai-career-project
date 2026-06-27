@@ -2,26 +2,28 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估，V1 主线收窄为 Canadian university explorers；Dashboard 改为 Growth Snapshot；Basic RAG、Full Dashboard、Supabase production integration 后置。
+
 目标：这个 roadmap 是后续执行顺序。后面做产品、原型、代码、内容库、AI prompt、数据库和测试，都按这里的阶段走。
 
 ## 总原则
 
 第一版只验证一个核心闭环：
 
-> Student Profile -> Career Path Match -> Roadmap -> Project Builder -> Dashboard -> AI Advisor
+> KB Seed -> Thin Student Profile -> Career Path Match -> Save Primary Path -> 4-week Roadmap -> Project Builder Step 1-2 -> Growth Snapshot -> Advisor Lite
 
 不要先做完整平台。不要先做纯 chatbot。不要先做 landing page 漂亮包装。先把学生从“迷茫”带到“选定方向并开始第一个项目”的闭环跑通。
 
 第一版的核心 demo：
 
-> 一个加拿大有专业/职业规划需求的学生填写背景后，系统推荐 3 条职业/专业探索路径，生成 4 周计划，推荐一个项目或探索 action，并带他完成第一步。
+> 一个加拿大大学生 explorer 填写背景后，系统推荐 3 条职业探索路径，保存 1 条主路径，生成 4 周计划，推荐一个项目，并带他完成 Step 1-2。
 
 ## KB 和 RAG 的位置
 
 这里要分清楚两件事：
 
 1. KB 内容层：从阶段 0 就开始搭。
-2. RAG 检索层：等 Profile / Career Match / Roadmap / Project Builder / AI Advisor 的基本上下文跑通后再接。
+2. RAG 检索层：等 Profile / Career Match / Roadmap / Project Builder / Advisor Lite 的基本上下文跑通后再接。
 
 原因：
 
@@ -31,7 +33,7 @@
 
 所以真实顺序是：
 
-> KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Roadmap -> Project Builder -> Dashboard -> AI Advisor -> Basic RAG
+> KB Schema + Seed Content -> Student Profile -> Career Path Matcher -> Save Primary Path -> Roadmap -> Project Builder -> Growth Snapshot -> Advisor Lite -> Basic RAG
 
 也就是说，KB 已经包括在 roadmap 里，而且是最早要做的地基之一；只是向量检索和引用回答可以放到后面。
 
@@ -45,9 +47,9 @@
 
 默认 ICP：
 
-> 全加拿大有专业/职业规划需求的高中生、大学生、新毕业生和 early-career explorers。内容方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
+> Canadian university explorers：在加拿大读大学或 college，来自 business / data / tech-adjacent 背景，职业方向不清晰、项目证据不足，想在 4 周内从“迷茫”进入“选定主路径并开始项目”的学生。内容方向先聚焦 Economics、Commerce、Business、Statistics、CS、Data Science、Cognitive Systems、International Relations 或 undecided。
 
-第一版不按年级限制使用，但内容和 demo 先围绕上述方向打深。
+第一版不按年级硬性排除使用，但内容、demo 和验证指标先围绕大学生 explorer 打深。高中生、新毕业生和 early-career users 保留为 secondary / later expansion。
 
 暂不作为主入口：
 
@@ -67,7 +69,7 @@
 
 先用 Markdown / Notion / Airtable 均可。代码前先有内容结构。
 
-这一阶段搭的是 KB 的内容和 schema，不是 RAG 技术。它会直接支撑 Career Path Matcher、Roadmap Generator、Project Builder 和 AI Advisor。
+这一阶段搭的是 KB 的内容和 schema，不是 RAG 技术。它会直接支撑 Career Path Matcher、Roadmap Generator、Project Builder 和 Advisor Lite。
 
 必须建 7 类主内容，另加 2 个支撑结构：
 
@@ -130,9 +132,9 @@ Demo 必须展示：
 2. 获得 3 条 path：Business Analyst、Data Analyst、Consulting Analyst。
 3. 选择主 path。
 4. 生成 4 周 roadmap。
-5. 推荐 Vancouver Housing Affordability Dashboard 或一个等价的 Canadian public-data beginner project。
-6. 完成 Project Step 1 或高中生 exploration action：Define research question。
-7. Dashboard 更新。
+5. 推荐 Canadian Housing and Cost of Living Dashboard 或一个等价的 Canadian public-data beginner project。
+6. 完成 Project Step 1-2 或高中生 exploration action：Define research question。
+7. Growth Snapshot 更新。
 
 验收标准：
 
@@ -191,7 +193,7 @@ Demo 必须展示：
 
 优先项目：
 
-> Vancouver Housing Affordability Dashboard
+> Canadian Housing and Cost of Living Dashboard
 
 验收标准：
 
@@ -213,8 +215,8 @@ Demo 必须展示：
 4. Career Path Detail
 5. Roadmap
 6. Project Builder
-7. Growth Dashboard
-8. AI Advisor
+7. Growth Snapshot
+8. Advisor Lite
 
 ### 2.2 页面顺序
 
@@ -222,7 +224,7 @@ Prototype 入口不是 landing page，而是 onboarding。
 
 用户流：
 
-> Onboarding -> Profile Summary -> Career Match -> Roadmap -> Project Builder -> Dashboard -> AI Advisor
+> Onboarding -> Profile Summary -> Career Match -> Save Primary Path -> Roadmap -> Project Builder -> Growth Snapshot -> Advisor Lite
 
 验收标准：
 
@@ -241,10 +243,11 @@ Prototype 入口不是 landing page，而是 onboarding。
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
-- Supabase Auth
-- Supabase Postgres
-- Supabase Storage
-- pgvector
+- Mock API / mock runtime store first
+- Supabase Auth later
+- Supabase Postgres later
+- Supabase Storage later
+- pgvector later
 - Vercel
 
 ### 3.1 初始化应用
@@ -255,7 +258,7 @@ Prototype 入口不是 landing page，而是 onboarding。
 - 接入 Tailwind / shadcn。
 - 建基础路由。
 - 建 UI layout。
-- 建 Supabase client。
+- 建 mock runtime store。
 - 配置环境变量。
 
 验收标准：
@@ -264,9 +267,9 @@ Prototype 入口不是 landing page，而是 onboarding。
 - Vercel 可部署。
 - 有基本 app shell，不是 landing page。
 
-### 3.2 建数据库和权限
+### 3.2 建 mock runtime store
 
-先建最小表：
+先用最小 runtime objects 模拟后续数据库：
 
 - profiles
 - student_profiles
@@ -284,29 +287,30 @@ Prototype 入口不是 landing page，而是 onboarding。
 
 验收标准：
 
-- 用户只能读写自己的 student data。
-- 公共 career_paths / project_templates 可读。
-- consent_records 可记录。
+- Demo session 可以读写自己的 student data。
+- 公共 career_paths / project_templates 从 YAML KB 读取。
+- consent_records 可以用 mock event 记录。
+- 这些对象字段与 `DATA_SCHEMA_ZH.md` 和 `API_CONTRACTS_ZH.md` 对齐。
 
 ### 3.3 建 seed content
 
-先把内容 seed 到数据库。
+先把内容 seed 放在 `kb/`，通过 loader 读取，不先导入数据库。
 
 第一批 seed：
 
-- 12 条 career path。
-- 6 个 project template。
-- 7 个 dashboard metrics。
+- 6 条 career path。
+- 4 个 project template。
+- 3 个 Growth Snapshot metrics。
 - 20-30 条 knowledge source metadata。
 
 验收标准：
 
-- 前端能读取真实数据库内容。
+- 前端能通过 loader / API 读取真实 KB 内容。
 - 没有把 career path 写死在组件里。
 
 ## 阶段 4：MVP 功能按顺序搭建
 
-这个阶段严格按顺序做。不要跳到后面的 AI Advisor 或 dashboard。
+这个阶段严格按顺序做。不要跳到后面的 Advisor Lite 或 Growth Snapshot。
 
 ### 4.1 Student Profile Onboarding
 
@@ -316,7 +320,7 @@ Prototype 入口不是 landing page，而是 onboarding。
 
 V1 功能：
 
-- 账号登录。
+- demo session。
 - 学生类型。
 - 年级、学校、专业。
 - 兴趣和不喜欢的方向。
@@ -329,7 +333,7 @@ V1 功能：
 验收标准：
 
 - 一个用户能完整提交 profile。
-- profile 写入数据库。
+- profile 写入 mock runtime store。
 - profile summary 可展示。
 - onboarding 不超过 10-15 分钟。
 
@@ -366,7 +370,7 @@ V1 功能：
 V1 功能：
 
 - 根据 primary path 生成 4-week plan。
-- 展示 3/6/12 个月路线。
+- 3/6/12 个月路线仅作为 later direction，不作为 V1 主页面。
 - 每周任务可打勾。
 - 任务状态可更新。
 
@@ -375,7 +379,7 @@ V1 功能：
 - 生成 roadmap。
 - 保存 roadmap。
 - 用户能完成第一个 task。
-- roadmap 更新 dashboard 需要的数据。
+- roadmap 更新 Growth Snapshot 需要的数据。
 
 ### 4.4 Project Builder
 
@@ -389,49 +393,46 @@ V1 功能：
 - 用户选择项目。
 - 展示项目步骤。
 - 用户提交 Step 1 输出。
-- AI 或规则给 Step 1 反馈。
+- 规则给 Step 1-2 下一步提示。
 - 记录进度。
 
 第一版只要求完整跑通一个项目：
 
-> Vancouver Housing Affordability Dashboard
+> Canadian Housing and Cost of Living Dashboard
 
 验收标准：
 
 - 用户能开始项目。
-- 用户能完成 Step 1。
+- 用户能完成 Step 1-2。
 - 系统能保存项目进度。
-- 系统能把项目进度反馈给 dashboard。
+- 系统能把项目进度反馈给 Growth Snapshot。
 
-### 4.5 Growth Dashboard
+### 4.5 Growth Snapshot
 
 为什么第五个做：
 
-> Dashboard 要基于真实 profile、path、roadmap、project progress，而不是假进度条。
+> Growth Snapshot 要基于真实 profile、path、roadmap、project progress，而不是假进度条。
 
 V1 指标：
 
 - Career Clarity
 - Skill Readiness
 - Project Readiness
-- Resume Readiness
-- Networking Readiness
-- Interview Readiness
-- Execution Consistency
+- Next Actions
 
 先用规则评分。
 
 验收标准：
 
-- Dashboard 从真实数据计算。
+- Growth Snapshot 从真实数据计算。
 - 显示 strongest area 和 next growth opportunity。
 - 显示 this week next action。
 
-### 4.6 AI Advisor
+### 4.6 Advisor Lite
 
 为什么第六个做：
 
-> AI Advisor 必须建立在 profile / roadmap / project progress 上，否则它就是普通聊天框。
+> Advisor Lite 必须建立在 profile / roadmap / project progress 上，否则它就是普通聊天框。
 
 V1 功能：
 
@@ -449,11 +450,11 @@ V1 功能：
 - 回答会推动下一步。
 - 高风险问题会转向 official resource 或 human advisor。
 
-### 4.7 Insight Library / Basic RAG
+### 4.7 Insight Library / Basic RAG Later
 
 为什么最后做：
 
-> KB 内容层早就已经在阶段 0 和阶段 3 建好。这里做的是检索层和引用层，也就是让 AI Advisor 能从 KB chunks 里查资料并显示来源。
+> KB 内容层早就已经在阶段 0 和阶段 3 建好。这里做的是后续检索层和引用层，也就是让 Advisor Lite 能从 KB chunks 里查资料并显示来源。
 
 V1 功能：
 
@@ -464,7 +465,7 @@ V1 功能：
 
 验收标准：
 
-- Advisor 能检索至少 20-50 条可靠知识片段。
+- Advisor Lite 能检索至少 20-50 条可靠知识片段。
 - 每条来源有 source / license / risk level。
 - RAG 没接上时，产品仍然能用 seed KB 跑通 Profile -> Match -> Roadmap -> Project 的核心闭环。
 
@@ -599,9 +600,9 @@ Trust：
 2. 如果还没有 demo script，先写 demo script，不先做界面。
 3. 如果还没有 prototype，先做 clickable prototype，不直接做全功能。
 4. 如果进入开发，先做 onboarding/profile，再做 career match。
-5. 不在 Profile / Career Match / Roadmap 跑通前做完整 AI Advisor。
+5. 不在 Profile / Career Match / Roadmap 跑通前做 Advisor Lite。
 6. 不在真实 project progress 存起来前做漂亮 dashboard。
-7. 不在 AI Advisor 有真实上下文前做复杂 RAG。
+7. 不在 Advisor Lite 有真实上下文前做复杂 RAG。
 8. 不做家长端、学校端、雇主端、自动投递、全职业库，除非用户明确改 roadmap。
 
 ## 现在的下一步

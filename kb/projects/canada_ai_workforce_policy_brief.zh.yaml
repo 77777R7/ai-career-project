@@ -1,0 +1,138 @@
+id: project.canada_ai_workforce_policy_brief
+title: Canada AI Workforce Policy Brief
+canonical_slug: canada-ai-workforce-policy-brief
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+tags:
+  - policy
+  - ai
+  - workforce
+  - canada
+owner: content
+created_at: 2026-06-27
+updated_at: 2026-06-27
+last_reviewed_at: 2026-06-27
+next_review_due: 2026-09-27
+source_ids:
+  - source.statcan_open_license
+  - source.jobbank_career_planning
+risk_level: medium
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+target_career_paths:
+  - career_path.policy_analyst
+  - career_path.consultant
+difficulty: beginner_to_intermediate
+estimated_time: 3-5 weeks
+skills:
+  - skill.policy_research
+  - skill.data_storytelling
+  - skill.excel
+prerequisites:
+  skills: []
+  tools:
+    - Google Docs
+    - Web browser
+  accounts:
+    - none
+project_goal: Write a short evidence-backed policy brief about how AI may affect one Canadian workforce or education issue.
+final_outputs:
+  - policy_question
+  - source_notes
+  - option_comparison
+  - policy_brief
+steps:
+  - step_number: 1
+    title: Define the policy question
+    objective: Choose one narrow AI workforce or education issue in Canada.
+    estimated_time: 30 minutes
+    required_tools:
+      - Google Docs
+    input_needed:
+      - policy_interest
+    instructions:
+      - Pick one issue, stakeholder group, or sector.
+      - Write one policy question that can be explored with public sources.
+      - Avoid making legal or government advice claims.
+    expected_output:
+      type: text
+      description: A 1-2 sentence policy question.
+    completion_checklist:
+      - Question is narrow.
+      - Stakeholder or sector is named.
+      - The project can use public sources.
+    ai_help_prompt: Help the student narrow the policy question and avoid unsupported claims.
+    review_rubric:
+      clarity: 0-3
+      feasibility: 0-3
+      sourceability: 0-3
+    common_mistakes:
+      - Choosing a question that is too broad.
+      - Treating policy opinion as evidence.
+    next_step_trigger: After the question is defined, help the student collect official sources.
+    related_action_id: action.define_project_question
+    related_metric_ids:
+      - metric.project_readiness
+rubric:
+  project_fit:
+    description: The project should show research, source judgment, and recommendation writing.
+  evidence_quality:
+    description: The brief should separate evidence, assumptions, tradeoffs, and recommendations.
+data_sources:
+  - source.statcan_open_license
+  - source.jobbank_career_planning
+ai_support_level:
+  allowed:
+    - explain_concepts
+    - review_student_output
+    - suggest_next_steps
+  not_allowed:
+    - provide_legal_advice
+    - fabricate_sources
+    - claim_policy_outcomes_are_certain
+academic_integrity_notes:
+  - This project is for learning and portfolio practice, not legal or government advice.
+ai_usage:
+  used_by:
+    - project_builder
+    - roadmap_generator
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - project_goal
+    - skills
+    - steps
+    - ai_support_level
+  display_fields:
+    - title
+    - project_goal
+    - difficulty
+    - estimated_time
+    - final_outputs
+    - steps
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - review
+  restricted_response_modes:
+    - fabricate_results
+    - legal_advice
+    - guarantee_outcome
+  user_visible: true
+compliance_notes:
+  - Keep responses educational; do not provide legal or official policy advice.
+change_log:
+  - date: 2026-06-27
+    change: Added after GPT Pro suggested policy/IR project.
+    editor: Codex

@@ -2,6 +2,8 @@
 
 日期：2026-06-27
 
+更新：2026-06-27，根据 GPT Pro 评估，本计划改为 user-story-first：先跑通 Canadian university explorer 的完整 demo loop，再接 Supabase、Full Dashboard 和 Basic RAG。
+
 ## 1. 文档目的
 
 本文件把当前 AI Student Growth Platform 的规划文档拆成真正的开发执行顺序。
@@ -21,7 +23,7 @@
 第一版实现目标不是做完整大平台，而是跑通一个可演示、可测试、可继续扩展的 MVP 闭环：
 
 ```text
-Onboarding -> Profile Summary -> Career Match -> Save Primary Path -> Roadmap -> Project Builder -> Dashboard -> AI Advisor
+Onboarding -> Profile Summary -> Career Match -> Save Primary Path -> 4-week Roadmap -> Project Builder Step 1-2 -> Growth Snapshot -> Advisor Lite
 ```
 
 本文件之后，开发工作按这里的阶段执行。
@@ -43,6 +45,7 @@ local app scaffold
 -> service logic
 -> tests
 -> Supabase integration
+-> Basic RAG later
 ```
 
 这样可以先证明产品体验和业务逻辑，再替换数据层。
@@ -57,14 +60,14 @@ V1 mock 不是随便写死页面。它必须使用真实字段名、真实 KB ID
 - demo session。
 - local runtime store。
 - AI response stub。
-- dashboard metric computation stub。
+- growth snapshot metric computation stub。
 
 不允许 mock：
 
 - 随便写不在 schema 里的字段。
 - 前端绕过 API contract。
 - Career Match 只写固定文案，不经过 matcher service。
-- Dashboard 只显示静态数字，不读取状态。
+- Growth Snapshot 只显示静态数字，不读取状态。
 
 ### 2.3 KB YAML 先作为 source of truth
 
@@ -81,11 +84,11 @@ V1 mock 不是随便写死页面。它必须使用真实字段名、真实 KB ID
 
 开发初期直接用 server-side KB loader 读取 YAML。等 Supabase integration 阶段再决定是否 import 到数据库。
 
-### 2.4 不把 AI Advisor 作为第一入口
+### 2.4 不把 Advisor Lite 作为第一入口
 
 第一屏不是 chatbot。
 
-AI Advisor 只在用户已经有 profile、path、roadmap、project progress 之后出现，用来回答下一步问题。
+Advisor Lite 只在用户已经有 profile、path、roadmap、project progress 之后出现，用来回答下一步问题。
 
 ### 2.5 不扩 scope
 
@@ -162,7 +165,7 @@ tests: Vitest + Playwright
 career_path.business_analyst
 career_path.data_analyst
 career_path.consultant
-project.vancouver_housing_dashboard
+project.canadian_housing_cost_living_dashboard
 action.define_project_question
 action.select_dataset
 metric.career_clarity
@@ -432,14 +435,14 @@ GET /api/projects/active
 PATCH /api/projects/:project_id/steps/:step_id
 ```
 
-Dashboard：
+Growth Snapshot：
 
 ```text
 GET /api/dashboard
-POST /api/dashboard/recompute
+internal recompute hook
 ```
 
-Advisor：
+Advisor Lite：
 
 ```text
 POST /api/advisor/sessions
@@ -758,9 +761,9 @@ action.select_dataset
 ### 12.7 验收标准
 
 - 用户能从 roadmap task 进入 project。
-- `project.vancouver_housing_dashboard` 能实例化为 user project。
+- `project.canadian_housing_cost_living_dashboard` 能实例化为 user project。
 - 用户能提交 research question。
-- Step 1 完成后 dashboard metric 改变。
+- Step 1 完成后 Growth Snapshot metric 改变。
 - AI feedback 不承诺结果，只做项目质量反馈。
 
 ### 12.8 测试
@@ -769,18 +772,18 @@ action.select_dataset
 - user project created。
 - step submission stored。
 - rubric scores stored。
-- project readiness recomputed。
+- project readiness recomputed internally。
 
-## 13. Phase 9: Dashboard
+## 13. Phase 9: Growth Snapshot
 
 ### 13.1 目标
 
-Dashboard 显示用户真实状态，而不是静态漂亮数字。
+Growth Snapshot 显示用户真实状态，而不是静态漂亮数字。V1 只做轻量 snapshot，不做 Full Dashboard。
 
 ### 13.2 页面
 
 ```text
-/dashboard
+/growth
 ```
 
 ### 13.3 服务
@@ -788,10 +791,10 @@ Dashboard 显示用户真实状态，而不是静态漂亮数字。
 建议文件：
 
 ```text
-lib/services/dashboard/compute-career-clarity.ts
-lib/services/dashboard/compute-project-readiness.ts
-lib/services/dashboard/compute-skill-readiness.ts
-lib/services/dashboard/get-dashboard.ts
+lib/services/growth/compute-career-clarity.ts
+lib/services/growth/compute-project-readiness.ts
+lib/services/growth/compute-skill-readiness.ts
+lib/services/growth/get-growth-snapshot.ts
 ```
 
 ### 13.4 MVP metrics
@@ -802,18 +805,21 @@ lib/services/dashboard/get-dashboard.ts
 metric.career_clarity
 metric.project_readiness
 metric.skill_readiness
+next_best_action
 ```
 
 以后再补：
 
 ```yaml
-metric.interview_readiness
+interview_readiness
+resume_readiness
+networking_readiness
 ```
 
 ### 13.5 具体任务
 
-1. 实现 `GET /api/dashboard`。
-2. 实现 `POST /api/dashboard/recompute`。
+1. 实现 `GET /api/dashboard`，返回 V1 Growth Snapshot。
+2. 不暴露 `POST /api/dashboard/recompute` 给前端；V1 recompute 由保存 primary path、roadmap task 更新、project step 更新等服务端事件内部触发。
 3. 读取 latest snapshots。
 4. 如果没有 snapshot，可以 lazy recompute。
 5. 显示：
@@ -835,7 +841,7 @@ next_best_action:
 - 保存 primary path 后 career clarity 上升。
 - 开始 project 后 project readiness 改变。
 - 完成 Step 1 后 project readiness 再改变。
-- Dashboard 的 next best action 指向真实 action。
+- Growth Snapshot 的 next best action 指向真实 action。
 
 ### 13.7 测试
 
@@ -845,11 +851,11 @@ next_best_action:
 - project step completed state。
 - metric snapshots latest selection。
 
-## 14. Phase 10: AI Advisor
+## 14. Phase 10: Advisor Lite
 
 ### 14.1 目标
 
-实现一个基于结构化上下文的 Advisor，而不是通用聊天框。
+实现一个基于结构化上下文和 curated KB snippets 的 Advisor Lite，而不是通用聊天框或完整 RAG agent。
 
 ### 14.2 页面
 
@@ -863,7 +869,7 @@ next_best_action:
 
 ```text
 lib/services/advisor/create-session.ts
-lib/services/advisor/build-context.ts
+lib/services/advisor/build-curated-context.ts
 lib/services/advisor/classify-intent.ts
 lib/services/advisor/generate-response.ts
 lib/services/advisor/safety.ts
@@ -876,15 +882,19 @@ lib/services/advisor/safety.ts
 - Latest career match。
 - Active roadmap。
 - Current project progress。
-- Dashboard metrics。
-- KB refs。
+- Growth Snapshot metrics。
+- Curated KB refs。
 
 ### 14.5 输出
 
 - `advisor_sessions`
 - `advisor_messages`
+- risk flags for high-risk / blocked cases。
+
+Later：
+
 - optional proposed profile patch。
-- audit log for high-risk / blocked cases。
+- full audit log trail。
 
 ### 14.6 具体任务
 
@@ -893,7 +903,7 @@ lib/services/advisor/safety.ts
 3. 实现 starter prompts。
 4. 实现 `POST /api/advisor/messages`。
 5. Advisor 回答必须引用结构化状态。
-6. Advisor 不直接修改 profile，只返回 proposed patch。
+6. Advisor 不直接修改 profile；V1 也不做 proposed profile patch。
 7. 实现 basic safety rules：
 
 ```yaml
@@ -918,7 +928,7 @@ no_shame_language:
 - next-step question returns action ref。
 - match explanation question returns path refs。
 - high-risk immigration/legal question is blocked or redirected safely。
-- proposed profile patch requires user confirmation。
+- no proposed profile patch in V1。
 
 ## 15. Phase 11: Supabase Integration
 
@@ -995,12 +1005,12 @@ lib/repositories/advisor-repository.ts
 
 - Profile flow 稳定。
 - Career Matcher 稳定。
-- Roadmap / Project / Dashboard 稳定。
-- Advisor 能使用结构化上下文回答。
+- Roadmap / Project / Growth Snapshot 稳定。
+- Advisor Lite 能使用结构化上下文回答。
 
 ### 16.2 第一版 RAG 目标
 
-RAG 只给 AI Advisor 提供可引用资料，不替代结构化 KB。
+RAG 只给 Advisor Lite 提供可引用资料，不替代结构化 KB。
 
 ### 16.3 具体任务
 
@@ -1012,7 +1022,7 @@ RAG 只给 AI Advisor 提供可引用资料，不替代结构化 KB。
 ### 16.4 不做
 
 - 不让 RAG 直接决定 career match。
-- 不让 RAG 直接生成 dashboard score。
+- 不让 RAG 直接生成 Growth Snapshot score。
 - 不抓取未授权内容。
 
 ## 17. Cross-Phase Data Contract
@@ -1038,14 +1048,16 @@ advisor_messages
 
 | 用户动作 | 必须写入 |
 | --- | --- |
-| Complete onboarding | `student_profiles`, `profile_events`, `audit_logs` |
-| Generate career match | `career_matches`, `career_match_items`, `audit_logs` |
-| Save primary path | `saved_paths`, `dashboard_metric_snapshots`, `audit_logs` |
-| Generate roadmap | `roadmaps`, `roadmap_tasks`, `audit_logs` |
-| Start project | `user_projects`, `project_step_progress`, `dashboard_metric_snapshots`, `audit_logs` |
-| Submit project step | `project_step_progress`, `dashboard_metric_snapshots`, `audit_logs` |
+| Complete onboarding | `student_profiles`, `profile_events` |
+| Generate career match | `career_matches`, `career_match_items` |
+| Save primary path | `saved_paths`, `dashboard_metric_snapshots` |
+| Generate roadmap | `roadmaps`, `roadmap_tasks` |
+| Start project | `user_projects`, `project_step_progress`, `dashboard_metric_snapshots` |
+| Submit project step | `project_step_progress`, `dashboard_metric_snapshots` |
 | Open advisor | `advisor_sessions` |
-| Send advisor message | `advisor_messages`, optionally `audit_logs` |
+| Send advisor message | `advisor_messages` |
+
+`audit_logs` 是 Phase 2 trust / Supabase integration 的增强项，V1 mock loop 不要求完整实现。
 
 ## 18. End-to-End Demo Acceptance Criteria
 
@@ -1058,9 +1070,9 @@ MVP demo 通过的最低标准：
 5. 用户保存一个 primary path。
 6. 系统生成 4-week roadmap。
 7. 用户开始一个 project。
-8. 用户完成 `action.define_project_question`。
-9. Dashboard 根据真实状态更新。
-10. Advisor 能回答下一步，并引用当前 profile/path/roadmap/project。
+8. 用户完成 `action.define_project_question` 和 `action.select_dataset`。
+9. Growth Snapshot 根据真实状态更新。
+10. Advisor Lite 能回答下一步，并引用当前 profile/path/roadmap/project。
 
 Demo 失败条件：
 
@@ -1068,13 +1080,13 @@ Demo 失败条件：
 - 只有 chatbot，没有平台闭环。
 - Career Match 无法解释原因。
 - Roadmap 只是长文本，不是 task list。
-- Dashboard 是硬编码数字。
+- Growth Snapshot 是硬编码数字。
 - Advisor 不知道用户当前状态。
 - 出现焦虑、羞辱、保证录取、保证 offer、移民法律结论。
 
 ## 19. Recommended Sprint Split
 
-### Sprint 1: Runnable Shell + KB
+### Sprint 1: Primary User Story Loop Shell + KB
 
 范围：
 
@@ -1082,6 +1094,7 @@ Demo 失败条件：
 - KB loader。
 - Mock store。
 - API envelope。
+- Demo User A seed flow。
 
 完成线：
 
@@ -1115,11 +1128,11 @@ Demo 失败条件：
 
 - User can save path, generate roadmap, start project, complete first action。
 
-### Sprint 4: Dashboard + Advisor
+### Sprint 4: Growth Snapshot + Advisor Lite
 
 范围：
 
-- Dashboard metrics。
+- Growth Snapshot metrics。
 - Advisor context。
 - Advisor message flow。
 - Safety boundaries。
@@ -1150,7 +1163,7 @@ Demo 失败条件：
 - Career matcher rule tests。
 - End-to-end demo test。
 - Mobile onboarding screenshot check。
-- Dashboard state transition test。
+- Growth Snapshot state transition test。
 - Advisor safety test。
 - Supabase RLS test if DB is connected。
 
@@ -1159,7 +1172,7 @@ Demo 失败条件：
 - Onboarding wording。
 - Career match explanation。
 - High-school exploration language。
-- Dashboard score labels。
+- Growth Snapshot score labels。
 - Advisor safety boundary wording。
 
 ## 21. Open Decisions Before Coding

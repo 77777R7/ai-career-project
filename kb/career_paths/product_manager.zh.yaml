@@ -1,0 +1,145 @@
+id: career_path.product_manager
+title: Product Manager
+canonical_slug: product-manager
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - university_student
+  - international_student
+student_stage:
+  - university_beginner
+  - university_mid
+  - university_job_search
+tags:
+  - product
+  - business
+  - technology
+owner: content
+created_at: 2026-06-27
+updated_at: 2026-06-27
+last_reviewed_at: 2026-06-27
+next_review_due: 2026-09-27
+source_ids:
+  - source.onet_database
+  - source.jobbank_career_planning
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+summary: Product managers help teams decide what to build, why it matters, who it serves, and how success should be measured.
+related_majors:
+  - Commerce
+  - Business
+  - Computer Science
+  - Cognitive Systems
+  - Data Science
+  - Economics
+daily_tasks:
+  - Understand user problems and product goals.
+  - Prioritize features and tradeoffs.
+  - Write product requirements or decision memos.
+  - Coordinate with design, engineering, data, and business teams.
+best_fit_for:
+  - Students who like connecting user needs, business goals, and technology.
+  - Students who enjoy ambiguity, communication, and decision-making.
+  - Students who want a tech-adjacent path without only coding.
+common_challenges:
+  - Entry-level product roles can be hard to access without project evidence.
+  - Students need to show product judgment, not only interest in startups.
+reflection_questions:
+  - Do you enjoy asking what problem a product should solve before thinking about features?
+  - Are you comfortable making tradeoffs when there is no perfect answer?
+support_strategies:
+  - Start with a small PRD or product teardown project.
+required_skills:
+  - skill.product_thinking
+  - skill.business_analysis
+  - skill.data_storytelling
+  - skill.excel
+recommended_courses:
+  - Product management
+  - Human-computer interaction
+  - Business analytics
+  - Intro computer science
+high_school_preparation:
+  - Analyze apps you use and write what problem they solve.
+  - Join entrepreneurship, design, or coding clubs if available.
+university_preparation:
+  - Write one PRD or product teardown.
+  - Build a small project with a clear user problem and success metric.
+entry_level_roles:
+  - Product Analyst Intern
+  - Associate Product Manager Intern
+  - Business Analyst Intern
+  - Product Operations Intern
+internship_keywords:
+  - product analyst intern
+  - associate product manager intern
+  - product operations intern
+  - business analyst intern
+project_ideas:
+  - project.ai_student_growth_prd
+  - project.canadian_housing_cost_living_dashboard
+first_project_recommendation:
+  project_id: project.ai_student_growth_prd
+  reason: A PRD project lets the student show user problem framing, product tradeoffs, and communication without needing a full engineering build.
+career_progression:
+  entry_level:
+    - Product Analyst
+    - Associate Product Manager
+  mid_level:
+    - Product Manager
+    - Growth Product Manager
+  advanced:
+    - Senior Product Manager
+    - Group Product Manager
+salary_note: Product roles vary widely by company, region, and experience. Do not present salary or hiring outcomes as guaranteed.
+risks_and_challenges:
+  - Product management is competitive and often expects strong project stories.
+  - Students should test whether they enjoy ambiguity and cross-functional communication.
+misconceptions:
+  - Product management is not just having ideas; it requires problem framing, prioritization, evidence, and follow-through.
+alternative_paths:
+  - career_path.business_analyst
+  - career_path.data_analyst
+  - career_path.software_engineer
+canadian_context:
+  - Canadian entry roles may use product analyst, product operations, business analyst, or growth analyst titles.
+ai_usage:
+  used_by:
+    - career_path_matcher
+    - roadmap_generator
+    - project_builder
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - summary
+    - required_skills
+    - common_challenges
+    - first_project_recommendation
+    - canadian_context
+  display_fields:
+    - title
+    - summary
+    - daily_tasks
+    - required_skills
+    - first_project_recommendation
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - legal_advice
+    - immigration_advice
+  user_visible: true
+compliance_notes:
+  - Do not imply product roles are easier than engineering or business roles.
+change_log:
+  - date: 2026-06-27
+    change: Added after GPT Pro MVP scope review.
+    editor: Codex

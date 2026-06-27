@@ -1,0 +1,138 @@
+id: project.major_career_exploration_map
+title: Major and Career Exploration Map
+canonical_slug: major-career-exploration-map
+status: active
+version: 1.0.0
+locale: en-CA
+country: Canada
+province: all
+audience:
+  - high_school_student
+  - university_student
+student_stage:
+  - high_school_explorer
+  - university_beginner
+tags:
+  - exploration
+  - major-choice
+  - reflection
+owner: content
+created_at: 2026-06-27
+updated_at: 2026-06-27
+last_reviewed_at: 2026-06-27
+next_review_due: 2026-09-27
+source_ids:
+  - source.jobbank_career_planning
+risk_level: low
+review_status: unreviewed
+content_maturity: seed
+visibility: student_visible
+target_career_paths:
+  - career_path.business_analyst
+  - career_path.data_analyst
+  - career_path.policy_analyst
+difficulty: beginner
+estimated_time: 1-2 weeks
+skills:
+  - skill.data_storytelling
+  - skill.policy_research
+  - skill.business_analysis
+prerequisites:
+  skills: []
+  tools:
+    - Google Docs
+    - Google Sheets
+  accounts:
+    - none
+project_goal: Compare three possible majors and three related career paths, then write a short reflection on what to explore next.
+final_outputs:
+  - major_comparison_table
+  - career_path_notes
+  - reflection
+steps:
+  - step_number: 1
+    title: Choose majors and paths to compare
+    objective: Pick three majors or interest areas and three related career paths.
+    estimated_time: 25 minutes
+    required_tools:
+      - Google Docs
+      - Google Sheets
+    input_needed:
+      - target_majors
+      - liked_subjects
+      - career_interests
+    instructions:
+      - Choose three majors or subject areas you are curious about.
+      - Choose up to three career paths that might connect to them.
+      - Write one reason each option is worth exploring.
+    expected_output:
+      type: checklist
+      description: Three majors or subject areas and three career paths to compare.
+    completion_checklist:
+      - At least two options are listed.
+      - Each option has one reason.
+      - The student is not forced to decide permanently.
+    ai_help_prompt: Help the student compare options without making the decision for them.
+    review_rubric:
+      clarity: 0-3
+      exploration_breadth: 0-3
+      reflection_quality: 0-3
+    common_mistakes:
+      - Treating exploration as a final decision.
+      - Comparing too many options at once.
+    next_step_trigger: After options are listed, help the student identify one low-pressure next action.
+    related_action_id: action.define_project_question
+    related_metric_ids:
+      - metric.career_clarity
+      - metric.project_readiness
+rubric:
+  project_fit:
+    description: The project should support exploration and reflection, not job-search pressure.
+  evidence_quality:
+    description: The final output should show what the student learned and what they will test next.
+data_sources:
+  - source.jobbank_career_planning
+ai_support_level:
+  allowed:
+    - explain_concepts
+    - compare_options
+    - suggest_next_steps
+  not_allowed:
+    - decide_major_for_student
+    - guarantee_admission
+    - guarantee_career_outcome
+academic_integrity_notes:
+  - This project is for personal exploration and reflection.
+ai_usage:
+  used_by:
+    - project_builder
+    - roadmap_generator
+    - advisor_chat
+    - dashboard_scoring
+  prompt_fields:
+    - project_goal
+    - skills
+    - steps
+    - ai_support_level
+  display_fields:
+    - title
+    - project_goal
+    - difficulty
+    - estimated_time
+    - final_outputs
+    - steps
+  retrieval_priority: medium
+  allowed_response_modes:
+    - explain
+    - recommend
+    - compare
+  restricted_response_modes:
+    - guarantee_outcome
+    - decide_for_user
+  user_visible: true
+compliance_notes:
+  - Use exploration language for high-school users; do not imply a permanent major or career decision.
+change_log:
+  - date: 2026-06-27
+    change: Added as high-school-friendly exploration project after GPT Pro review.
+    editor: Codex

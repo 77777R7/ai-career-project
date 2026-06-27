@@ -1,11 +1,11 @@
-id: project.vancouver_housing_dashboard
-title: Vancouver Housing Affordability Dashboard
-canonical_slug: vancouver-housing-affordability-dashboard
-status: archived
+id: project.canadian_housing_cost_living_dashboard
+title: Canadian Housing and Cost of Living Dashboard
+canonical_slug: canadian-housing-cost-living-dashboard
+status: active
 version: 1.0.0
 locale: en-CA
 country: Canada
-province: BC
+province: all
 audience:
   - university_student
   - international_student
@@ -16,25 +16,35 @@ tags:
   - data
   - dashboard
   - housing
-  - vancouver
+  - cost-of-living
+  - canada
 owner: content
-created_at: 2026-06-26
+created_at: 2026-06-27
 updated_at: 2026-06-27
 last_reviewed_at: 2026-06-27
-next_review_due: 2026-09-26
+next_review_due: 2026-09-27
 source_ids:
   - source.statcan_open_license
   - source.vancouver_open_data
 risk_level: low
 review_status: unreviewed
 content_maturity: seed
-visibility: internal_legacy
-superseded_by: project.canadian_housing_cost_living_dashboard
+visibility: student_visible
 target_career_paths:
   - career_path.data_analyst
   - career_path.business_analyst
+  - career_path.consultant
 difficulty: beginner_to_intermediate
 estimated_time: 4-6 weeks
+city_options:
+  - Canada-wide
+  - Vancouver
+  - Toronto
+  - Calgary
+  - Montreal
+  - Ottawa
+  - Halifax
+default_demo_city: Vancouver
 skills:
   - skill.spreadsheet_basics
   - skill.excel
@@ -47,18 +57,17 @@ prerequisites:
     - Excel or Google Sheets
   accounts:
     - none
-project_goal: Analyze housing affordability trends in Vancouver and explain the findings through a dashboard and short insight memo.
+project_goal: Analyze a Canadian housing or cost-of-living question using public data, then explain the finding through a small dashboard or insight memo.
 final_outputs:
-  - cleaned_dataset
-  - dashboard
+  - research_question
+  - dataset_source_note
+  - simple_chart_or_dashboard
   - insight_summary
-  - portfolio_page
-  - resume_bullet
-  - interview_story
+  - portfolio_note
 steps:
   - step_number: 1
     title: Define the research question
-    objective: Choose a focused question for the project.
+    objective: Choose a focused Canadian housing or cost-of-living question.
     estimated_time: 30 minutes
     required_tools:
       - Google Docs
@@ -66,8 +75,9 @@ steps:
     input_needed:
       - career_path
       - student_interest
+      - city_or_region
     instructions:
-      - Choose a topic related to housing affordability.
+      - Pick one city, region, or Canada-wide comparison.
       - Write one question that can be answered with public data.
       - Keep the question specific enough for a beginner project.
     expected_output:
@@ -85,14 +95,14 @@ steps:
     common_mistakes:
       - The question is too broad.
       - The question cannot be answered with available data.
-      - The question sounds interesting but has no decision context.
+      - The question has no decision context.
     next_step_trigger: After a feasible question is written, help the student select a dataset.
     related_action_id: action.define_project_question
     related_metric_ids:
       - metric.project_readiness
   - step_number: 2
     title: Select a dataset
-    objective: Find a public dataset that can support the research question.
+    objective: Find an official or credible public dataset that can support the question.
     estimated_time: 45 minutes
     required_tools:
       - Web browser
@@ -102,7 +112,7 @@ steps:
     instructions:
       - Search official public data sources first.
       - Record the dataset name, source URL, and why it fits the question.
-      - Avoid copying analysis from someone else's project.
+      - Note whether the source supports Canada-wide or city-specific analysis.
     expected_output:
       type: source_note
       description: Dataset source URL plus 2-3 sentences explaining why it fits.
@@ -118,18 +128,18 @@ steps:
     common_mistakes:
       - Choosing a dataset before defining the question.
       - Using a dataset without checking source or terms.
-    next_step_trigger: After a dataset is selected, guide the student through data cleaning.
+    next_step_trigger: After a dataset is selected, guide the student through data cleaning or chart planning.
     related_action_id: action.select_dataset
     related_metric_ids:
       - metric.project_readiness
 rubric:
   project_fit:
-    description: The project should show business-relevant data analysis, not only chart creation.
+    description: The project should show practical analysis and clear communication, not only chart creation.
   evidence_quality:
-    description: Final outputs should make the student's role and reasoning clear.
+    description: Final outputs should make the student's reasoning and source choices clear.
 resume_bullet_templates:
-  - Built a dashboard analyzing Vancouver housing affordability trends using public datasets, translating findings into a concise insight summary for portfolio presentation.
-linkedin_post_template: I started a data project exploring Vancouver housing affordability. My first step was defining a focused research question and finding public data sources that can support the analysis.
+  - Built a beginner dashboard analyzing a Canadian housing or cost-of-living question using public data, translating findings into a concise insight summary.
+linkedin_post_template: I started a public-data project exploring a Canadian housing or cost-of-living question. My first step was defining a focused research question and checking credible data sources.
 interview_story_template: "Use a simple project story: why I chose the question, how I found data, what I cleaned, what I found, and what I would improve next."
 data_sources:
   - source.statcan_open_license
@@ -155,6 +165,7 @@ ai_usage:
     - dashboard_scoring
   prompt_fields:
     - project_goal
+    - city_options
     - skills
     - prerequisites
     - steps
@@ -165,6 +176,7 @@ ai_usage:
     - project_goal
     - difficulty
     - estimated_time
+    - city_options
     - final_outputs
     - steps
   retrieval_priority: high
@@ -181,6 +193,6 @@ compliance_notes:
   - Keep source attribution visible when students use public data.
   - AI can review student work but should not fabricate analysis outputs.
 change_log:
-  - date: 2026-06-26
-    change: Created seed version with first two project steps.
+  - date: 2026-06-27
+    change: Added national version after GPT Pro MVP scope review; Vancouver remains a default demo city.
     editor: Codex

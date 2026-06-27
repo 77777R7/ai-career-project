@@ -80,9 +80,9 @@ internship_keywords:
   - product analyst
   - strategy analyst intern
 project_ideas:
-  - project.vancouver_housing_dashboard
+  - project.canadian_housing_cost_living_dashboard
 first_project_recommendation:
-  project_id: project.vancouver_housing_dashboard
+  project_id: project.canadian_housing_cost_living_dashboard
   reason: Useful for students who want to show structured analysis and business communication using public data.
 career_progression:
   entry_level:

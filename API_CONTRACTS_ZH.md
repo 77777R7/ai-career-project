@@ -2,6 +2,8 @@
 
 日期：2026-06-26
 
+更新：2026-06-27，根据 GPT Pro 评估，V1 API 先服务 Growth Snapshot 和 Advisor Lite；Full Dashboard、Basic RAG、Supabase production repository 后置。
+
 ## 1. 文档目的
 
 本文件定义 AI Student Growth Platform 第一版 MVP 的 API contracts。
@@ -23,8 +25,8 @@ MVP API 主线：
 /api/career-matches
 /api/roadmaps
 /api/projects
-/api/dashboard
-/api/advisor
+/api/dashboard   # V1 返回 Growth Snapshot
+/api/advisor     # V1 返回 Advisor Lite
 ```
 
 ## 2. API 设计原则
@@ -34,7 +36,7 @@ MVP API 主线：
 第一版 API 只支持：
 
 ```text
-Profile -> Career Match -> Save Primary Path -> Roadmap -> Project -> Dashboard -> Advisor
+Profile -> Career Match -> Save Primary Path -> Roadmap -> Project -> Growth Snapshot -> Advisor Lite
 ```
 
 暂不支持：
@@ -57,8 +59,8 @@ Profile -> Career Match -> Save Primary Path -> Roadmap -> Project -> Dashboard 
 - 读取 KB。
 - 写入 product runtime tables。
 - 写入 `profile_events`。
-- 写入 `audit_logs`。
-- 触发 dashboard metric recompute。
+- V1 可先写入轻量 event log；完整 `audit_logs` 后置。
+- 触发 Growth Snapshot metric recompute。
 - 执行 AI safety / risk rules。
 
 ### 2.3 API 返回用户可显示的数据，不返回原始大表 dump
@@ -75,7 +77,7 @@ API 可以返回 KB refs：
 career_path.business_analyst
 career_path.data_analyst
 career_path.consultant
-project.vancouver_housing_dashboard
+project.canadian_housing_cost_living_dashboard
 action.define_project_question
 metric.career_clarity
 metric.project_readiness
@@ -204,7 +206,7 @@ KB refs：
 ```json
 {
   "path_id": "career_path.business_analyst",
-  "project_template_id": "project.vancouver_housing_dashboard",
+  "project_template_id": "project.canadian_housing_cost_living_dashboard",
   "action_id": "action.define_project_question",
   "metric_id": "metric.career_clarity"
 }
@@ -228,12 +230,14 @@ API response 中涉及规则生成时应包含版本：
 
 | Endpoint | 主要职责 | 主要写入表 |
 | --- | --- | --- |
-| `/api/profile` | onboarding、profile summary、profile update | `user_accounts`, `student_profiles`, `profile_events`, `consent_records`, `audit_logs` |
-| `/api/career-matches` | 生成 career match、保存 primary path | `career_matches`, `career_match_items`, `saved_paths`, `audit_logs` |
-| `/api/roadmaps` | 生成 roadmap、更新 task 状态 | `roadmaps`, `roadmap_tasks`, `audit_logs` |
-| `/api/projects` | 开始项目、更新 project step | `user_projects`, `project_step_progress`, `dashboard_metric_snapshots`, `audit_logs` |
-| `/api/dashboard` | 读取和重算 metrics | `dashboard_metric_snapshots` |
-| `/api/advisor` | 创建 AI Advisor session、发送消息 | `advisor_sessions`, `advisor_messages`, `audit_logs` |
+| `/api/profile` | onboarding、profile summary、profile update | `user_accounts`, `student_profiles`, `profile_events`, `consent_records` |
+| `/api/career-matches` | 生成 career match、保存 primary path | `career_matches`, `career_match_items`, `saved_paths` |
+| `/api/roadmaps` | 生成 roadmap、更新 task 状态 | `roadmaps`, `roadmap_tasks` |
+| `/api/projects` | 开始项目、更新 project step | `user_projects`, `project_step_progress`, `dashboard_metric_snapshots` |
+| `/api/dashboard` | 读取 Growth Snapshot metrics | `dashboard_metric_snapshots` |
+| `/api/advisor` | 创建 Advisor Lite session、发送消息 | `advisor_sessions`, `advisor_messages` |
+
+完整 `audit_logs` 属于 Supabase / trust layer 增强，不作为 V1 mock loop 的硬前置。
 
 ## 5. `/api/profile`
 
@@ -429,7 +433,7 @@ optionally compute metric.career_clarity snapshot
 
 ### 5.5 `PATCH /api/profile`
 
-用于用户编辑 profile，或确认 AI Advisor 提出的 profile patch。
+用于用户编辑 profile。Advisor Lite proposed profile patch 属于后续增强，V1 不做自动提出/确认 profile patch。
 
 #### Request
 
@@ -613,8 +617,8 @@ return top 3 with explanations and next action
             "title": "Define a project research question"
           },
           "recommended_project": {
-            "project_template_id": "project.vancouver_housing_dashboard",
-            "title": "Vancouver Housing Dashboard"
+            "project_template_id": "project.canadian_housing_cost_living_dashboard",
+            "title": "Canadian Housing and Cost of Living Dashboard"
           },
           "risk_notes": []
         }
@@ -937,7 +941,7 @@ Roadmap -> Project Builder -> Project Step Review
 
 ```json
 {
-  "project_template_id": "project.vancouver_housing_dashboard",
+  "project_template_id": "project.canadian_housing_cost_living_dashboard",
   "primary_path_id": "career_path.business_analyst",
   "source_roadmap_id": "uuid",
   "source_task_id": "uuid",
@@ -964,8 +968,8 @@ compute metric.project_readiness snapshot
   "data": {
     "project": {
       "project_id": "uuid",
-      "project_template_id": "project.vancouver_housing_dashboard",
-      "title": "Vancouver Housing Dashboard",
+      "project_template_id": "project.canadian_housing_cost_living_dashboard",
+      "title": "Canadian Housing and Cost of Living Dashboard",
       "primary_path_id": "career_path.business_analyst",
       "status": "in_progress",
       "current_step_number": 1,
@@ -1013,8 +1017,8 @@ compute metric.project_readiness snapshot
     "projects": [
       {
         "project_id": "uuid",
-        "project_template_id": "project.vancouver_housing_dashboard",
-        "title": "Vancouver Housing Dashboard",
+        "project_template_id": "project.canadian_housing_cost_living_dashboard",
+        "title": "Canadian Housing and Cost of Living Dashboard",
         "status": "in_progress",
         "current_step_number": 1,
         "completed_steps": 0,
@@ -1108,12 +1112,12 @@ compute metric.project_readiness and metric.skill_readiness snapshots
 
 ### 9.1 目的
 
-负责读取用户成长状态和 dashboard metrics。
+负责读取用户成长状态和 Growth Snapshot metrics。V1 仍保留 `/api/dashboard` 路径名，方便后续扩展到 Full Dashboard。
 
 对应产品阶段：
 
 ```text
-Project Progress -> Dashboard
+Project Progress -> Growth Snapshot
 ```
 
 ### 9.2 读写表
@@ -1136,7 +1140,7 @@ Project Progress -> Dashboard
 
 ### 9.3 `GET /api/dashboard`
 
-读取 dashboard 当前状态。
+读取 Growth Snapshot 当前状态。
 
 #### Response
 
@@ -1197,11 +1201,11 @@ Project Progress -> Dashboard
 }
 ```
 
-### 9.4 `POST /api/dashboard/recompute`
+### 9.4 Internal recompute hook
 
-重新计算 metrics。
+重新计算 metrics。V1 不把 `POST /api/dashboard/recompute` 暴露给前端；它只是服务端内部事件可以调用的逻辑，例如保存 primary path、完成 roadmap task、提交 project step 后触发。
 
-#### Request
+#### Internal input
 
 ```json
 {
@@ -1225,7 +1229,7 @@ insert dashboard_metric_snapshots
 return latest metric snapshots
 ```
 
-#### Response
+#### Internal output
 
 ```json
 {
@@ -1253,14 +1257,14 @@ return latest metric snapshots
 
 ### 10.1 目的
 
-负责 AI Advisor session 和 messages。
+负责 Advisor Lite session 和 messages。
 
-Advisor 的定位是增强入口，不是产品第一入口。
+Advisor Lite 的定位是增强入口，不是产品第一入口。
 
 对应产品阶段：
 
 ```text
-Dashboard / Project / Roadmap -> AI Advisor
+Growth Snapshot / Project / Roadmap -> Advisor Lite
 ```
 
 ### 10.2 读写表
@@ -1329,7 +1333,7 @@ return session and opening context
           "title": "Business Analyst"
         },
         "current_project_progress": {
-          "project_template_id": "project.vancouver_housing_dashboard",
+          "project_template_id": "project.canadian_housing_cost_living_dashboard",
           "completed_project_steps": 1,
           "latest_action_id": "action.define_project_question"
         }
@@ -1396,7 +1400,7 @@ return assistant message, structured refs, and optional proposed profile patch
       "content": "Your next useful move is to choose the dataset for your housing dashboard. Keep the scope small: one public dataset, one question, and one chart that answers it.",
       "structured_refs": {
         "action_ids": ["action.select_dataset"],
-        "project_template_ids": ["project.vancouver_housing_dashboard"],
+        "project_template_ids": ["project.canadian_housing_cost_living_dashboard"],
         "metric_ids": ["metric.project_readiness"]
       },
       "recommended_next_action_id": "action.select_dataset",
@@ -1523,11 +1527,11 @@ project_step_not_found:
 project_step_update_failed:
 ```
 
-### 11.6 Dashboard
+### 11.6 Growth Snapshot
 
 ```yaml
 metric_not_found:
-dashboard_recompute_failed:
+growth_snapshot_recompute_failed:
 ```
 
 ### 11.7 Advisor
@@ -1625,7 +1629,7 @@ Demo mode 可以跑完整体验，但必须：
 | --- | --- |
 | 使用产品基础条款 | `terms_of_service` |
 | 保存 profile 个性化数据 | `profile_personalization` |
-| 使用 AI Advisor | `ai_advisor` |
+| 使用 Advisor Lite | `advisor_lite` |
 | 上传文件 | `user_uploaded_files` |
 | 市场营销通知 | `marketing_communications` |
 | 未成年人相关正式流程 | `guardian_or_parental_consent` |
@@ -1645,7 +1649,7 @@ V1 demo 可以不实现完整 guardian flow，但 schema 和 API 需要保留空
 | `/roadmap/task` | `PATCH /api/roadmaps/:roadmap_id/tasks/:task_id` |
 | `/project` | `POST /api/projects`, `GET /api/projects/active` |
 | `/project/step` | `PATCH /api/projects/:project_id/steps/:step_id` |
-| `/dashboard` | `GET /api/dashboard`, optional `POST /api/dashboard/recompute` |
+| `/growth` or `/dashboard` | `GET /api/dashboard` |
 | `/advisor` | `POST /api/advisor/sessions`, `POST /api/advisor/messages` |
 
 ## 15. MVP Demo API Sequence
@@ -1697,7 +1701,7 @@ V1 API 暂不做：
 1. Demo mode 用 cookie session、signed token，还是只在本地 prototype 用 mock user。
 2. `POST /api/profile` 是否自动生成 profile summary，还是拆成 `POST /api/profile/summary`。
 3. `POST /api/career-matches` 是否每次都新建 run，还是可复用同 profile_version 的最新 run。
-4. Dashboard metrics 是 event-driven recompute，还是 dashboard load 时 lazy recompute。
+4. Growth Snapshot metrics：V1 默认 event-driven internal recompute，`GET /api/dashboard` 缺 snapshot 时可 lazy recompute；不把 `POST /api/dashboard/recompute` 暴露给前端。
 5. Advisor message 是否默认永久保存，还是设置 retention。
 6. KB YAML 是 server runtime 读取，还是 build-time import 到 DB。
 7. 前端是否需要单独的 `/api/kb/*` 轻量读取接口。
@@ -1724,6 +1728,6 @@ V1 API 暂不做：
 5. Career Matcher service。
 6. Roadmap service。
 7. Project progress。
-8. Dashboard。
-9. Advisor。
+8. Growth Snapshot。
+9. Advisor Lite。
 10. Supabase integration。

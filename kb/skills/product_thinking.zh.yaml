@@ -1,0 +1,28 @@
+id: skill.product_thinking
+name: Product Thinking
+category: product
+summary: Ability to identify user problems, define product goals, compare tradeoffs, and turn ambiguity into a clear product decision.
+related_career_paths:
+  - career_path.product_manager
+  - career_path.business_analyst
+prerequisite_skills: []
+beginner_definition: Can describe a user problem, target user, success metric, and first product requirement.
+intermediate_definition: Can write a concise PRD, prioritize features, and explain tradeoffs with user and business context.
+advanced_definition: Can lead discovery, define product strategy, and align teams around measurable outcomes.
+evidence_examples:
+  - Wrote a PRD for a student-facing product.
+  - Compared feature tradeoffs and success metrics.
+proof_artifacts:
+  - prd
+  - feature_prioritization
+  - product_memo
+learning_resources: []
+assessment_method: Review whether the student defines the user, problem, constraints, success metric, and next decision clearly.
+dashboard_metric_links:
+  - metric.skill_readiness
+  - metric.project_readiness
+source_ids:
+  - source.onet_database
+risk_level: low
+content_maturity: seed
+visibility: student_visible
